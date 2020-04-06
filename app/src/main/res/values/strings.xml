@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NisiGay</string>
+    <string name="err_richiesto">Dato richiesto</string>
+    <string-array name="Tratte">
+        <item>Piazza Cavour - UNIVPM</item>
+        <item>Piazza Ugo Bassi - UNIVPM</item>
+        <item>Passetto - UNIVPM</item>
+        <item>Porto - UNIVPM</item>
+    </string-array>
+
+    <string-array name="Posti">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>
