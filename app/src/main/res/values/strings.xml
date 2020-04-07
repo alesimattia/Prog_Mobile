@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NisiGay</string>
+    <string name="app_name">Unicar</string>
     <string name="err_richiesto">Dato richiesto</string>
     <string-array name="Tratte">
         <item>Piazza Cavour - UNIVPM</item>
