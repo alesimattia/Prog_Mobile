@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "127096942589",
+    "firebase_url": "https://unicar-c14bb.firebaseio.com",
+    "project_id": "unicar-c14bb",
+    "storage_bucket": "unicar-c14bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127096942589:android:8089037883a582dc743394",
+        "android_client_info": {
+          "package_name": "com.example.progetto_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127096942589-41fv035fu991gokbc69tdpdn719vl8ni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLpCfQX3na5bnGDn90LvENWg_ioRMYqO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127096942589-41fv035fu991gokbc69tdpdn719vl8ni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
