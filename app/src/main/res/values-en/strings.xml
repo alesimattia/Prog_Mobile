@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="err_richiesto">All data requested</string>
+    <string name="emptyField">Empty Field</string>
+    <string name="passAlert">Short Password (min 6 characters)</string>
+    <string name="errorSignup">Error in the signup process</string>
+    <string name="register">Sign Up</string>
+    <string name="name">First Name</string>
+    <string name="surname">Last Name</string>
+    <string name="birth">Date of birth (dd/mm/yyyy)</string>
+    <string name="id">Serial</string>
+    <string name="licence">Driving licence (optional)</string>
+    <string name="cancel">Cancel</string>
+    <string name="registerTitle">Join now!</string>
+    <string name="emptyField2">Data requested</string>
+</resources>

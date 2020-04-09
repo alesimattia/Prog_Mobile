@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="340dp"
         android:ems="10"
-        android:hint="NOME"
+        android:hint="@string/name"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +30,13 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="388dp"
         android:ems="10"
-        android:hint="COGNOME"
+        android:hint="@string/surname"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/editText_num"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -44,13 +45,13 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="276dp"
         android:ems="10"
-        android:hint="DATA DI NASCITA (yyyy-mm-dd)"
+        android:hint="@string/birth"
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -59,12 +60,13 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="196dp"
         android:ems="10"
-        android:hint="E-MAIL"
+        android:hint="e-Mail"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -73,12 +75,13 @@
         android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="148dp"
         android:ems="10"
-        android:hint="PASSWORD"
+        android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -89,7 +92,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="60dp"
         android:ems="10"
-        android:hint="MATRICOLA"
+        android:hint="@string/id"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,8 +106,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="55dp"
         android:ems="10"
-        android:hint="PATENTE (FACOLTATIVA)"
+        android:hint="@string/licence"
         android:inputType="text"
+        android:required="false"
         app:layout_constraintBottom_toBottomOf="@+id/editText_num"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -126,32 +130,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/dialog_inserisci"
+        android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="10dp"
-        android:text="REGISTRATI"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/dialog_cancella"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_patente" />
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/register"
+        app:layout_constraintStart_toStartOf="@+id/editText_num"
+        app:layout_constraintTop_toBottomOf="@+id/editText_num" />
 
     <Button
-        android:id="@+id/dialog_cancella"
+        android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="10dp"
-        android:text="CANCELLA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dialog_inserisci"
-        app:layout_constraintTop_toBottomOf="@+id/editText_patente" />
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="55dp"
+        android:text="@string/cancel"
+        app:layout_constraintEnd_toEndOf="@+id/editText_num"
+        app:layout_constraintTop_toBottomOf="@+id/editText_num" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

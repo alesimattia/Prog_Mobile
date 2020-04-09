@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Unicar</string>
-    <string name="err_richiesto">Dato richiesto</string>
+    <string name="app_name" translatable="false">Unicar</string>
+
     <string-array name="Tratte">
         <item>Piazza Cavour - UNIVPM</item>
         <item>Piazza Ugo Bassi - UNIVPM</item>
@@ -14,4 +14,21 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <!--per activity_main-->
+    <string name="err_richiesto">Dato Richiesto</string>
+    <string name="emptyField">Campi Vuoti</string>
+    <string name="passAlert">Password minimo 6 caratteri</string>
+    <string name="errorSignup">Errore nella registrazione</string>
+    <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
+
+    <!--per register_layout-->
+    <string name="name">Nome</string>
+    <string name="surname">Cognome</string>
+    <string name="birth">Data di nascita (gg/mm/aaaa)</string>
+    <string name="id">Matricola</string>
+    <string name="licence">Patente (facoltativa)</string>
+    <string name="cancel">Annulla</string>
+    <string name="registerTitle">Iscriviti ora!</string>
+    <string name="emptyField2">Richiesto</string>
 </resources>
