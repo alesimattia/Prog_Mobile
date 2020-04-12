@@ -31,4 +31,15 @@
     <string name="cancel">Annulla</string>
     <string name="registerTitle">Iscriviti ora!</string>
     <string name="emptyField2">Richiesto</string>
+
+    <!--per Drive_pass -->
+    <string name="title">Scegli l'attività</string>
+    <string name="drive">Guida</string>
+    <string name="hitch">Trova un passaggio</string>
+    <string name="dbWriteErr">Errore di scrittura nel database</string>
+
+    <!--per LicenceActivity-->
+    <string name="noLicence">Non hai inserito una patente</string>
+    <string name="message">Fornisci un codice per iniziare a guidare</string>
+    <string name="licence2">Numero Patente</string>
 </resources>

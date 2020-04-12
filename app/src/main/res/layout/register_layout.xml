@@ -8,145 +8,127 @@
 
     <EditText
         android:id="@+id/editText_nome"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="340dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="13dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/name"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
+        app:layout_constraintBottom_toTopOf="@+id/editText_cognome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText_cognome"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="388dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:ems="10"
         android:hint="@string/surname"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_num"
+        app:layout_constraintBottom_toTopOf="@+id/editText_data"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
 
     <EditText
         android:id="@+id/editText_data"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="276dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
         android:ems="10"
         android:hint="@string/birth"
         android:inputType="date"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
+        app:layout_constraintBottom_toTopOf="@+id/editText_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_cognome" />
+
 
     <EditText
         android:id="@+id/editText_email"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="196dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:ems="10"
         android:hint="e-Mail"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
+        app:layout_constraintBottom_toTopOf="@+id/editText_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_data" />
 
     <EditText
         android:id="@+id/editText_password"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="148dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
+        app:layout_constraintBottom_toTopOf="@+id/editText_patente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editText_matricola"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="60dp"
-        android:ems="10"
-        android:hint="@string/id"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_patente"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_email" />
 
     <EditText
         android:id="@+id/editText_patente"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="55dp"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="9dp"
         android:ems="10"
         android:hint="@string/licence"
         android:inputType="text"
         android:required="false"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_num"
+        app:layout_constraintBottom_toTopOf="@+id/editText_num"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <EditText
-        android:id="@+id/editText_num"
-        android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="120dp"
-        android:ems="10"
-        android:hint="NUMERO"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_password" />
 
     <Button
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginBottom="62dp"
         android:text="@string/register"
-        app:layout_constraintStart_toStartOf="@+id/editText_num"
-        app:layout_constraintTop_toBottomOf="@+id/editText_num" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancelBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="62dp"
         android:text="@string/cancel"
-        app:layout_constraintEnd_toEndOf="@+id/editText_num"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/registerBtn"
         app:layout_constraintTop_toBottomOf="@+id/editText_num" />
+
+    <EditText
+        android:id="@+id/editText_num"
+        android:layout_width="377dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="40dp"
+        android:ems="10"
+        android:hint="NUMERO"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_patente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

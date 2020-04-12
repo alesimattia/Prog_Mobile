@@ -1,0 +1,80 @@
+package com.example.progetto_mobile;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+public class LicenceActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private EditText editText_codice;
+    private Button okBtn;
+    private Button cancBtn;
+    private String codice = null;
+
+    private FirebaseUser user;
+    private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.licence_layout);
+        Toast.makeText(this, "Non hai una patente registrata!", Toast.LENGTH_LONG).show();
+
+        editText_codice = findViewById(R.id.editText_codice);
+        cancBtn = findViewById(R.id.button_canc);
+        okBtn = findViewById(R.id.button_ok);
+
+        cancBtn.setOnClickListener(this);
+        okBtn.setOnClickListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        db=FirebaseFirestore.getInstance();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        switch(v.getId()){
+            case R.id.button_ok:
+                codice = editText_codice.getText().toString();
+                if(codice!=null)    updateData(codice);
+                break;
+
+            case R.id.button_canc:  //torna alla selezione delle attività
+                Intent intent=new Intent(this, ChooseActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+    private void updateData(String codice){
+
+        DocumentReference document = db.collection("utenti").document(user.getUid());
+        document.update("patente", codice)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("write_error", "Db write error -> patente non aggiunta", e);
+                        Toast.makeText(this, "Errore nella scrittura della patente", Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+}
