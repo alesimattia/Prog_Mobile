@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+//trasformare in dialog
 public class LicenceActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editText_codice;
@@ -55,7 +55,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
         switch(v.getId()){
             case R.id.button_ok:
                 codice = editText_codice.getText().toString();
-                if(codice!=null)    updateData(codice);
+                if(codice!=null)    updateInfo(codice);
                 break;
 
             case R.id.button_canc:  //torna alla selezione delle attività
@@ -65,7 +65,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    private void updateData(String codice){
+    private void updateInfo(String codice){
 
         DocumentReference document = db.collection("utenti").document(user.getUid());
         document.update("patente", codice)
@@ -77,4 +77,29 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 });
     }
+
+
+/*
+    public class FireMissilesDialogFragment extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.dialog_fire_missiles)
+                    .setPositiveButton(R.string.fire, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // FIRE ZE MISSILES!
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // User cancelled the dialog
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
+        }
+    }
+*/
+
 }

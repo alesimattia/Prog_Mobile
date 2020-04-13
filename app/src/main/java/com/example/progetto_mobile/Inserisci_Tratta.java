@@ -4,6 +4,8 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,40 +16,38 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class Inserisci_Tratta extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener {
+public class Inserisci_Tratta extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, 	RadioGroup.OnCheckedChangeListener {
 
+    private RadioGroup radioGroup;
 
+    private String verso = null;
+    private String ora = null;
+    private Button btnOrario;
 
-
-    RadioGroup rg;
-    RadioButton rb;
-    String and_rit = null;
-    String ora = null;
-    Button button;
-
-
-
-
-
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.inserisci_tratta);
 
-        Spinner spinner = findViewById(R.id.spinner1);
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Tratte, android.R.layout.simple_spinner_item);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Posti, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
-        rg = (RadioGroup) findViewById(R.id.rgroup);
-        button = (Button) findViewById(R.id.button_Time);
-        button.setOnClickListener(new View.OnClickListener() {
+        Spinner posti = findViewById(R.id.spinner_posti);
+        Spinner tratta = findViewById(R.id.spinner_tratta);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        btnOrario = (Button) findViewById(R.id.button_orario);
+
+        ArrayAdapter<CharSequence> adapter_tratte = ArrayAdapter.createFromResource(this, R.array.spinner_tratte, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter_posti = ArrayAdapter.createFromResource(this, R.array.spinner_posti, android.R.layout.simple_spinner_item);
+
+        adapter_tratte.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter_posti.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        posti.setAdapter(adapter_tratte);
+        posti.setOnItemSelectedListener(this);
+
+        tratta.setAdapter(adapter_posti);
+        tratta.setOnItemSelectedListener(this);
+
+
+        btnOrario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment timePicker = new TimePickerFragment();
@@ -55,6 +55,24 @@ public class Inserisci_Tratta extends AppCompatActivity implements AdapterView.O
             }
         });
     }
+
+    public void onRadioButtonClick (View v){
+
+        int checked=radioGroup.getCheckedRadioButtonId();
+        RadioButton button = (RadioButton) v.findViewById(checked);
+        verso =(String) button.getText().toString();
+
+    }
+
+/////////////////////////////CONTINUA DA QUI -> STUDIA LO SPINNER ////////////////////////////////
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text1 = parent.getItemAtPosition(position).toString();
+        String text2 = parent.getItemAtPosition(position).toString();
+
+    }
+
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -65,26 +83,6 @@ public class Inserisci_Tratta extends AppCompatActivity implements AdapterView.O
     }
 
 
-    public void rbclick (View v){
-
-        int radiobuttonid = rg.getCheckedRadioButtonId();
-        RadioButton rb = (RadioButton) findViewById(radiobuttonid);
-        and_rit = rb.getText().toString(); //inserisce il testo del radio button alla stringa and_rit
-
-    }
-
-
-
-
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text1 = parent.getItemAtPosition(position).toString();
-        String text2 = parent.getItemAtPosition(position).toString();
-
-    }
-
 
 
     @Override
@@ -92,6 +90,9 @@ public class Inserisci_Tratta extends AppCompatActivity implements AdapterView.O
 
     }
 
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
 
     }
+}
 
