@@ -55,7 +55,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
         switch(v.getId()){
             case R.id.button_ok:
                 codice = editText_codice.getText().toString();
-                if(codice!=null)    updateInfo(codice);
+                if(! codice.isEmpty())    updateInfo(codice);
                 break;
 
             case R.id.button_canc:  //torna alla selezione delle attività
@@ -73,7 +73,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w("write_error", "Db write error -> patente non aggiunta", e);
-                        Toast.makeText(this, "Errore nella scrittura della patente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LicenceActivity.this, "Errore nella scrittura della patente", Toast.LENGTH_LONG).show();
                     }
                 });
     }

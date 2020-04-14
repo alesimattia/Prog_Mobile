@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editText_nome;
@@ -59,10 +60,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         context=super.getApplicationContext();
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.register_layout);
         setTitle(context.getResources().getString(R.string.registerTitle));
 
         db = FirebaseFirestore.getInstance();
+        mAuth=FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
         editText_email = findViewById(R.id.editText_email);
@@ -93,55 +96,38 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 data = editText_data.getText().toString();      //VERIFICA con formato DATE
                 tel = editText_tel.getText().toString();
 
-                List<String> dati = new ArrayList<String>();
-                dati.add(email);
-                dati.add(password);
-                dati.add(nome);
-                dati.add(cognome);
-                dati.add(data);
-                dati.add(tel);
 
-                for(String current : dati)
-                    if(current.isEmpty()){
-                        context.getResources().getString(R.string.emptyField2);
-                        //context.requestFocus(current);
-                        return;
-                    }
-
-                /*
                if(nome.isEmpty()){
-                    editText_nome.setError(context.getResources().getString(R.string.emptyField2));   //VERIFICA SE BASTA getString(...)
+                    editText_nome.setError(context.getResources().getString(R.string.err_richiesto));   //VERIFICA SE BASTA getString(...)
                     editText_nome.requestFocus();
                     return;
                 }
                 if(cognome.isEmpty()){
-                    editText_cognome.setError("dati da inserire");
+                    editText_cognome.setError(context.getResources().getString(R.string.err_richiesto));
                     editText_cognome.requestFocus();
                     return;
                 }
                 if(data.isEmpty()){
-                    editText_data.setError("dati da inserire");
+                    editText_data.setError(context.getResources().getString(R.string.err_richiesto));
                     editText_data.requestFocus();
                     return; }
                 if(email.isEmpty()){
-                    editText_email.setError("dati da inserire");
+                    editText_email.setError(context.getResources().getString(R.string.err_richiesto));
                     editText_email.requestFocus();
                     return;
                 }
-                if(password.isEmpty()){
-                    editText_password.setError("dati da inserire");
+                if(password.isEmpty() || password.length()<6){
+                    editText_password.setError(context.getResources().getString(R.string.passAlert));
                     editText_password.requestFocus();
                     return;
                 }
-                if((password.length())<6) {
-                    editText_password.setError("deve contenere almeno 6 caratteri");
-                    editText_password.requestFocus();
+                if(tel.isEmpty()){
+                    editText_tel.setError(context.getResources().getString(R.string.err_richiesto));
+                    editText_tel.requestFocus();
                     return;
-                */
+                }
 
-                registration(email,password,nome,patente,data,tel);
-                Intent intent=new Intent(this, ChooseActivity.class);
-                startActivity(intent);
+                registration(email, password, nome, patente, data, tel);
                 break;
 
             case R.id.cancelBtn:
@@ -152,10 +138,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void registration(final String email, final String password, final String nome, final String patente, final String dataN, final String tel) {
-        if(password.length()<=6) {
-            Toast.makeText(RegisterActivity.this, context.getString(R.string.passAlert),Toast.LENGTH_SHORT).show();
-        }
-        else mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() { //operazione asincrona
+
+         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() { //operazione asincrona
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
@@ -178,10 +162,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     Log.w("db_error", "Errore aggiunta info. utente al db"+e);
                                     Toast.makeText(RegisterActivity.this, context.getString(R.string.dbWriteErr),Toast.LENGTH_SHORT).show();
                                 }
+                            })
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Intent intent = new Intent(RegisterActivity.this, ChooseActivity.class);
+                                    startActivity(intent);
+                                }
                             });
                 }
                 else Toast.makeText(RegisterActivity.this, context.getString(R.string.errorSignup),Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }

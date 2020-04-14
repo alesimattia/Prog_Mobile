@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -50,56 +52,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
-    public void login(String email,String password) {
-
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = mAuth.getCurrentUser();
-                            }
-                            else {
-                                Log.w("login_error", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-    }
-
-
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.loginBtn: {
+
                 try {
                     email = emailText.getText().toString();
                     password = passwordText.getText().toString();
-                } catch (NullPointerException e) {   //nel caso di campi vuoti
-                    Toast.makeText(MainActivity.this, getString(R.string.emptyField), Toast.LENGTH_LONG).show();
+                }
+                catch (NullPointerException e) {   //nel caso di campi vuoti
+                    Toast.makeText(this, getString(R.string.emptyField), Toast.LENGTH_LONG).show();
                 }
 
+                if(email.isEmpty()){
+                    emailText.setError(getResources().getString(R.string.err_richiesto));   //VERIFICA SE BASTA getString(...)
+                    emailText.requestFocus();
+                    return;
+                }
+                if(password.isEmpty() || password.length()<6){
+                    passwordText.setError(getResources().getString(R.string.passAlert));
+                    passwordText.requestFocus();
+                    return;
+                }
                 login(email, password);
                 break;
             }
+
             case R.id.registerBtn: {
                 Intent regIntent=new Intent(this, RegisterActivity.class);
                 startActivity(regIntent);
                 break;
             }
-            default:    //per protezione
-                Toast.makeText(MainActivity.this, "Non permesso", Toast.LENGTH_LONG).show();
+            default:    //per protezione - non tradotto
+                Toast.makeText(this, "Not allowed", Toast.LENGTH_LONG).show();
         }
     }
 
-    @Override
+
+    public void login(String email, String password) {
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Log.w("login_error", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+   /* @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
     }
+    */
 
 }
 

@@ -4,14 +4,13 @@ package com.example.progetto_mobile;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
-import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
-//Classe per il time-picker come da documentazione
-//Eliminato il "onTimeSetListener" --> gestito in Inserisci_tratta.class
+//Classe per il time-picker come da documentazione Google
+//Eliminata interfaccia "onTimeSetListener" --> gestito in Inserisci_tratta.class
 
 public class TimePickerFragment extends DialogFragment {
 
@@ -23,7 +22,7 @@ public class TimePickerFragment extends DialogFragment {
         int minute = c.get(Calendar.MINUTE);
 
         // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), this, hour, minute, DateFormat.is24HourFormat(getActivity()));
+        return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) this, hour, minute, DateFormat.is24HourFormat(getActivity()));
     }
 
 }

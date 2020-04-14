@@ -58,7 +58,7 @@
         android:layout_marginBottom="9dp"
         android:ems="10"
         android:hint="e-Mail"
-        android:inputType="text"
+        android:inputType="textWebEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editText_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

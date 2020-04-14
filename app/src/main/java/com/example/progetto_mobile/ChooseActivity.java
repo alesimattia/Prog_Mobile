@@ -28,11 +28,11 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_layout);
-        setTitle("Ciao "+user.getDisplayName());
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         db=FirebaseFirestore.getInstance();
+        setTitle("Ciao "+user.getEmail());
 
         hitch = findViewById(R.id.imageButton_hitch);
         driver = findViewById(R.id.imageButton_driver);
@@ -55,7 +55,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
             }
         });*/
 
-        if(docRef.get().getResult().get("patente").toString()!=null)    //docRef.get().getResult().getString("patente")
+        if(! docRef.get().getResult().get("patente").toString().isEmpty())    //docRef.get().getResult().getString("patente")
             return true;
         return false;
     }

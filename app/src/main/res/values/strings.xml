@@ -3,7 +3,7 @@
 
     <!--per activity_main-->
     <string name="err_richiesto">Dato Richiesto</string>
-    <string name="emptyField">Campi Vuoti</string>
+    <string name="emptyField">Campi vuoti</string>
     <string name="passAlert">Password minimo 6 caratteri</string>
     <string name="errorSignup">Errore nella registrazione</string>
     <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
@@ -50,5 +50,7 @@
         <item>Stazione Centrale - Tavernelle</item>
         <item>Passetto - UNIVPM</item>
     </string-array>
+
+    <string name="added">Viaggio pubblicato correttamente</string>
 
 </resources>

@@ -54,7 +54,7 @@
             android:id="@+id/radio_ritorno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="@string/ritorno"
             android:onClick="onRadioButtonClick"/>
     </RadioGroup>
@@ -68,10 +68,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Tratta3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_testo" />
 
     <TextView
-        android:id="@+id/textView_Tratta3"
+        android:id="@+id/textView_testo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="256dp"
@@ -84,7 +84,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView_Ora"
+        android:id="@+id/textView_ora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -92,7 +92,7 @@
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/button_orario"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Tratta3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_testo" />
 
     <Spinner
         android:id="@+id/spinner_posti"
@@ -123,7 +123,7 @@
         android:text="@string/posti"
         android:textAlignment="textStart"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView_Tratta3"
+        app:layout_constraintBottom_toTopOf="@+id/textView_testo"
         app:layout_constraintEnd_toStartOf="@+id/spinner_posti"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="err_richiesto">All data requested</string>
-    <string name="emptyField">Empty Field</string>
+    <string name="emptyField">Empty Fields</string>
     <string name="passAlert">Short Password (min 6 characters)</string>
     <string name="errorSignup">Error in the signup process</string>
     <string name="register">Sign Up</string>
@@ -27,4 +27,5 @@
     <string name="scegliOra">Choose start hour:</string>
     <string name="ora">Hour</string>
     <string name="posti">Available seats</string>
+    <string name="added">Ride posted correctly</string>
 </resources>
