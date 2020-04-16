@@ -68,7 +68,7 @@ public class Dialog extends AppCompatActivity implements View.OnClickListener  {
                 startActivity(m);
                 break;
 
-            case R.id.button_eliminaviaggio:
+            case R.id.button_eliminaviaggio:/*
                 db.collection("viaggi").whereEqualTo("telefono",tel)
                         .delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -83,7 +83,7 @@ public class Dialog extends AppCompatActivity implements View.OnClickListener  {
                                 Log.w(TAG, "Error deleting document", e);
                             }
                         });
-
+                    */
                 Intent n = new Intent(this, ChooseActivity.class);
                 startActivity(n);
                 break;
