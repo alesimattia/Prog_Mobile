@@ -6,27 +6,27 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button_inseriscitratta"
+        android:id="@+id/button_inserisciviaggio"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:layout_marginBottom="36dp"
-        android:text="Inserisci Tratta"
-        app:layout_constraintBottom_toTopOf="@+id/button_eliminatratta"
+        android:text="@string/inserisci"
+        app:layout_constraintBottom_toTopOf="@+id/button_eliminaviaggio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_eliminatratta"
+        android:id="@+id/button_eliminaviaggio"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="396dp"
-        android:text="MODIFICA TRATTA"
+        android:text="@string/elimina"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_inseriscitratta" />
+        app:layout_constraintTop_toBottomOf="@+id/button_inserisciviaggio" />
 </androidx.constraintlayout.widget.ConstraintLayout>

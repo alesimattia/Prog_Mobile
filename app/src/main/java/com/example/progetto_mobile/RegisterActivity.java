@@ -53,20 +53,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseFirestore db;
     private FirebaseUser user;
 
-    private Context context;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        context=super.getApplicationContext();
+        super.getApplicationContext();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.register_layout);
-        setTitle(context.getResources().getString(R.string.registerTitle));
+        setTitle(getResources().getString(R.string.registerTitle));
 
         db = FirebaseFirestore.getInstance();
         mAuth=FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
 
         editText_email = findViewById(R.id.editText_email);
         editText_password = findViewById(R.id.editText_password);
@@ -98,31 +95,31 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
                if(nome.isEmpty()){
-                    editText_nome.setError(context.getResources().getString(R.string.err_richiesto));   //VERIFICA SE BASTA getString(...)
+                    editText_nome.setError(getResources().getString(R.string.err_richiesto));   //VERIFICA SE BASTA getString(...)
                     editText_nome.requestFocus();
                     return;
                 }
                 if(cognome.isEmpty()){
-                    editText_cognome.setError(context.getResources().getString(R.string.err_richiesto));
+                    editText_cognome.setError(getResources().getString(R.string.err_richiesto));
                     editText_cognome.requestFocus();
                     return;
                 }
                 if(data.isEmpty()){
-                    editText_data.setError(context.getResources().getString(R.string.err_richiesto));
+                    editText_data.setError(getResources().getString(R.string.err_richiesto));
                     editText_data.requestFocus();
                     return; }
                 if(email.isEmpty()){
-                    editText_email.setError(context.getResources().getString(R.string.err_richiesto));
+                    editText_email.setError(getResources().getString(R.string.err_richiesto));
                     editText_email.requestFocus();
                     return;
                 }
                 if(password.isEmpty() || password.length()<6){
-                    editText_password.setError(context.getResources().getString(R.string.passAlert));
+                    editText_password.setError(getResources().getString(R.string.passAlert));
                     editText_password.requestFocus();
                     return;
                 }
                 if(tel.isEmpty()){
-                    editText_tel.setError(context.getResources().getString(R.string.err_richiesto));
+                    editText_tel.setError(getResources().getString(R.string.err_richiesto));
                     editText_tel.requestFocus();
                     return;
                 }
@@ -144,7 +141,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
 
-                    CollectionReference user = db.collection("utenti");
+                    //CollectionReference user = db.collection("utenti");
                     //raccolgo tutti i dati dell'utente
                     Map<String, Object> data = new HashMap<>();
                     data.put("email", email);   //oppure mAuth.getCurrentUser().getEmail();
@@ -153,14 +150,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     data.put("patente",patente);
                     data.put("data", dataN);
                     data.put("telefono",tel);
-                    user.document(mAuth.getCurrentUser().getUid()).set(data);
 
-                    db.collection("utenti").document(mAuth.getCurrentUser().getUid()).set(user, SetOptions.merge()) //senza SetOptions se il file esiste viene sovrascritto --> funge da merge
+                    db.collection("utenti").document(mAuth.getCurrentUser().getUid())
+                            .set(data, SetOptions.merge()) //senza SetOptions se il file esiste viene sovrascritto
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     Log.w("db_error", "Errore aggiunta info. utente al db"+e);
-                                    Toast.makeText(RegisterActivity.this, context.getString(R.string.dbWriteErr),Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(RegisterActivity.this, getString(R.string.dbWriteErr),Toast.LENGTH_LONG).show();
+                                    finish();   //riavvia l'activity
+                                    startActivity(getIntent());
                                 }
                             })
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -171,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 }
                             });
                 }
-                else Toast.makeText(RegisterActivity.this, context.getString(R.string.errorSignup),Toast.LENGTH_SHORT).show();
+                else Toast.makeText(RegisterActivity.this, getString(R.string.errorSignup),Toast.LENGTH_SHORT).show();
             }
         });
     }

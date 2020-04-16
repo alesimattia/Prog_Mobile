@@ -30,25 +30,29 @@
     <string name="message">Fornisci un codice per iniziare a guidare</string>
     <string name="licence2">Numero Patente</string>
 
+    <!--per il dialog-->
+    <string name="inserisci">Inserisci viaggio </string>
+    <string name="elimina">Elimina viaggio</string>
+
     <!--Inserisci_tratta-->
     <string name="seleziona">Seleziona Tratta</string>
     <string name="andata">Andata</string>
     <string name="ritorno">Ritorno</string>
-    <string name="scegliOra">Scegli l\'orario di partenza:</string>
+    <string name="scegliOra">Scegli l\'orario di partenza</string>
     <string name="ora">Orario</string>
-    <string name="posti">Posti disponibili</string>
+    <string name="posti">Posti disponibili:</string>
 
     <string-array name="spinner_posti">
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
-    
+
     <string-array name="spinner_tratte">
         <item>Piazza Cavour - UNIVPM</item>
         <item>Piazza Ugo Bassi - UNIVPM</item>
         <item>Stazione Centrale - Tavernelle</item>
-        <item>Passetto - UNIVPM</item>
+        <item>Passetto - Tavernelle</item>
     </string-array>
 
     <string name="added">Viaggio pubblicato correttamente</string>

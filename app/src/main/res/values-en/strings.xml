@@ -24,8 +24,10 @@
     <string name="seleziona">Select ride</string>
     <string name="andata">Going</string>
     <string name="ritorno">Return</string>
-    <string name="scegliOra">Choose start hour:</string>
+    <string name="scegliOra">Choose start hour</string>
     <string name="ora">Hour</string>
-    <string name="posti">Available seats</string>
+    <string name="posti">Available seats:</string>
     <string name="added">Ride posted correctly</string>
+    <string name="inserisci">Insert ride</string>
+    <string name="elimina">Delete a ride</string>
 </resources>

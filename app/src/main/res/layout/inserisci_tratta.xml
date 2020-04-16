@@ -36,27 +36,27 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="60dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/textView_posti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/radio_andata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/andata"
-            android:onClick="onRadioButtonClick"/>
+            android:onClick="onRadioButtonClick"
+            android:text="@string/andata" />
 
         <RadioButton
             android:id="@+id/radio_ritorno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/ritorno"
-            android:onClick="onRadioButtonClick"/>
+            android:onClick="onRadioButtonClick"
+            android:text="@string/ritorno" />
     </RadioGroup>
 
     <Button
@@ -98,7 +98,7 @@
         android:id="@+id/spinner_posti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView_posti"

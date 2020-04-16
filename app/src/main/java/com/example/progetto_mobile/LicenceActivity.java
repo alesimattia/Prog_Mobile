@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -34,7 +35,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.licence_layout);
-        Toast.makeText(this, "Non hai una patente registrata!", Toast.LENGTH_LONG).show();
+
 
         editText_codice = findViewById(R.id.editText_codice);
         cancBtn = findViewById(R.id.button_canc);
@@ -55,7 +56,7 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
         switch(v.getId()){
             case R.id.button_ok:
                 codice = editText_codice.getText().toString();
-                if(! codice.isEmpty())    updateInfo(codice);
+                if(!codice.equals(""))    updateInfo(codice);
                 break;
 
             case R.id.button_canc:  //torna alla selezione delle attività
@@ -69,6 +70,13 @@ public class LicenceActivity extends AppCompatActivity implements View.OnClickLi
 
         DocumentReference document = db.collection("utenti").document(user.getUid());
         document.update("patente", codice)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Intent intent=new Intent(LicenceActivity.this, Dialog.class);
+                        startActivity(intent);
+                    }
+                })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
