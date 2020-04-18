@@ -13,7 +13,7 @@
     <string name="cancel">Cancel</string>
     <string name="registerTitle">Join now!</string>
     <string name="emptyField2">Data requested</string>
-    <string name="title">Choose Action</string>
+    <string name="choose">Choose Action</string>
     <string name="hitch">Hitch Ride</string>
     <string name="drive">Drive</string>
     <string name="dbWriteErr">Database writing error</string>
@@ -24,10 +24,16 @@
     <string name="seleziona">Select ride</string>
     <string name="andata">Going</string>
     <string name="ritorno">Return</string>
-    <string name="scegliOra">Choose start hour</string>
+    <string name="scegliOra">Choose when to start</string>
     <string name="ora">Hour</string>
     <string name="posti">Available seats:</string>
     <string name="added">Ride posted correctly</string>
     <string name="inserisci">Insert ride</string>
     <string name="elimina">Delete a ride</string>
+    <string name="data">Date</string>
+    <string name="ok">Share</string>
+    <string name="call">Call</string>
+    <string name="choose2">Choose what to do</string>
+    <string name="deleted">Rides deleted correctly!</string>
+    <string name="sure">Want you to delete all your rides?</string>
 </resources>

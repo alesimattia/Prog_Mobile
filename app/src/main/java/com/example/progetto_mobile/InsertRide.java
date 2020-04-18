@@ -1,14 +1,17 @@
 package com.example.progetto_mobile;
 
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -28,21 +31,24 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-//spinner                            //selezione tempo
-public class InsertRide extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, 	RadioGroup.OnCheckedChangeListener {
+                                                                        //spinner                          //selezione tempo
+public class InsertRide extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener, RadioGroup.OnCheckedChangeListener {
 
     public RadioGroup radioGroup;
     public Button btnOrario;
+    public Button btnData;
     public Button btnOk;
 
     private String tratta=null;
     private String ora = null;
+    private String data=null;
     private String verso = null;
     private String posti=null;
     private String phone=null;
@@ -56,7 +62,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inserisci_tratta);
+        setContentView(R.layout.insert_ride);
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -78,6 +84,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
         btnOk = findViewById(R.id.button_ok);
         radioGroup = findViewById(R.id.radioGroup);
         btnOrario = findViewById(R.id.button_orario);
+        btnData = findViewById(R.id.button);
 
         btnOrario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +94,19 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
+        btnData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
+
         btnOk.setOnClickListener(new View.OnClickListener() {   //anche con gestione dichiarativa
             @Override
             public void onClick(View v) {
-                sumbit(tratta, ora, verso, posti);
+                sumbit(tratta, ora, data, verso, posti);
             }
         });
     }
@@ -132,6 +148,20 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
 
 
 
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        data = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c.getTime());
+
+        TextView textView = findViewById(R.id.textView_data);
+        textView.setText(data);
+    }
+
+
+
     final AtomicBoolean check = new AtomicBoolean(false);
     public void getNumber() {
 
@@ -153,10 +183,9 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
 
 
 
-    public void sumbit(final String tratta,final String ora,final String verso, final String posti){
-
-        if (tratta.isEmpty() || ora.isEmpty() || verso.isEmpty())
-            Toast.makeText(this, R.string.emptyField,Toast.LENGTH_SHORT).show();
+    public void sumbit(final String tratta,final String ora, final String data, final String verso, final String posti){
+        if (radioGroup.getCheckedRadioButtonId()==0 || ora.equals(null) || data.isEmpty())
+            Toast.makeText(InsertRide.this, R.string.emptyField, Toast.LENGTH_SHORT).show();
         else {
             getNumber();
 
@@ -164,31 +193,36 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Map<String, Object> data = new HashMap<>();
-                    data.put("tratta", tratta);
-                    data.put("ora", ora);
-                    data.put("verso", verso);
-                    data.put("posti",posti);
-                    data.put("telefono", phone);
+                    if (check.get()) {  //attende la lettura dal db del telefono
+                        Map<String, Object> pack = new HashMap<>();
+                        pack.put("tratta", tratta);
+                        pack.put("ora", ora);
+                        pack.put("data", data);
+                        pack.put("verso", verso);
+                        pack.put("posti", posti);
+                        pack.put("telefono", phone);
+                        pack.put("user", user.getUid());
 
-                    db.collection("viaggi").document(/*uid random*/)
-                            .set(data)
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w("db_error", "Errore aggiunta viaggio al db " + e);
-                                    Toast.makeText(InsertRide.this, getString(R.string.dbWriteErr), Toast.LENGTH_LONG).show();
-                                    getParentActivityIntent();
-                                }
-                            });
+                        /*db.collection("viaggi").document(user.getUid()).collection("travel").document(radndom UID)
+                        Salva un documento per ogni utente -> poi subcollection con un documento per viaggio --> di difficile accesso*/
+                        db.collection("viaggi").document(/*radndom UID*/)   //un documento per viaggio
+                                .set(pack)
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w("db_error", "Errore aggiunta viaggio al db " + e);
+                                        Toast.makeText(InsertRide.this, getString(R.string.dbWriteErr), Toast.LENGTH_LONG).show();
+                                        getParentActivityIntent();
+                                    }
+                                });
 
-                    Toast.makeText(InsertRide.this, getString(R.string.added), Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(InsertRide.this, ChooseActivity.class);
-                    startActivity(intent);
+                        Toast.makeText(InsertRide.this, getString(R.string.added), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(InsertRide.this, ChooseActivity.class);
+                        startActivity(intent);
+                    }
                 }
-            },1000);
+            }, 1000);
         }
-
     }
 
 
