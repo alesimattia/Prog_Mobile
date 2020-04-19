@@ -36,8 +36,6 @@ public class ShowRides extends AppCompatActivity {
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT);
 
-    private String number = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

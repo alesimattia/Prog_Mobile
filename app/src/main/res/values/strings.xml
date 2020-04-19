@@ -8,6 +8,7 @@
     <string name="errorSignup">Errore nella registrazione</string>
     <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
 
+
     <!--per register_layout-->
     <string name="name">Nome</string>
     <string name="surname">Cognome</string>
@@ -19,10 +20,11 @@
     <string name="emptyField2">Richiesto</string>
     <string name="telephone">Telefono</string>
 
+
     <!--per ChooseActivity -->
     <string name="choose">Scegli l\'attività</string>
     <string name="drive">Guida</string>
-    <string name="hitch">Trova un passaggio</string>
+    <string name="hitch">Trova Passaggi</string>
     <string name="dbWriteErr">Errore di scrittura nel database</string>
     <!--per il dialog-->
     <string name="choose2">Cosa vuoi fare?</string>
@@ -30,11 +32,14 @@
     <string name="elimina">Elimina i viaggi</string>
     <string name="deleted">Viaggi eliminati correttamente!</string>
     <string name="sure">Sei sicuro di eliminare tutti i tuoi viaggi?</string>
+    <string name="back">Annulla</string>
+
 
     <!--per LicenceActivity-->
     <string name="noLicence">Non hai inserito una patente</string>
     <string name="message">Fornisci un codice per iniziare a guidare</string>
     <string name="licence2">Numero Patente</string>
+
 
     <!--per InsertRide-->
     <string name="seleziona">Seleziona Tratta</string>
@@ -45,20 +50,18 @@
     <string name="posti">Posti disponibili:</string>
     <string name="data">Data</string>
     <string name="ok">Pubblica</string>
-
     <string-array name="spinner_posti">
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
-
     <string-array name="spinner_tratte">
         <item>Piazza Cavour - UNIVPM</item>
         <item>Piazza Ugo Bassi - UNIVPM</item>
         <item>Stazione Centrale - Tavernelle</item>
         <item>Passetto - Tavernelle</item>
     </string-array>
-
     <string name="added">Viaggio pubblicato correttamente</string>
     <string name="call">Contatta</string>
+
 </resources>

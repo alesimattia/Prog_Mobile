@@ -5,7 +5,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,7 +36,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-
                                                                         //spinner                          //selezione tempo
 public class InsertRide extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener, RadioGroup.OnCheckedChangeListener {
 
@@ -184,7 +182,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
 
 
     public void sumbit(final String tratta,final String ora, final String data, final String verso, final String posti){
-        if (radioGroup.getCheckedRadioButtonId()==0 || ora.equals(null) || data.isEmpty())
+        if (radioGroup.getCheckedRadioButtonId()==0 || ora==null || data==null)
             Toast.makeText(InsertRide.this, R.string.emptyField, Toast.LENGTH_SHORT).show();
         else {
             getNumber();

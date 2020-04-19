@@ -14,7 +14,7 @@
     <string name="registerTitle">Join now!</string>
     <string name="emptyField2">Data requested</string>
     <string name="choose">Choose Action</string>
-    <string name="hitch">Hitch Ride</string>
+    <string name="hitch">Hitch Rides</string>
     <string name="drive">Drive</string>
     <string name="dbWriteErr">Database writing error</string>
     <string name="noLicence">You don\'t have a driving licence</string>
@@ -36,4 +36,5 @@
     <string name="choose2">Choose what to do</string>
     <string name="deleted">Rides deleted correctly!</string>
     <string name="sure">Want you to delete all your rides?</string>
+    <string name="back">Go back</string>
 </resources>

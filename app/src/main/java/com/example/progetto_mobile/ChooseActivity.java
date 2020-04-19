@@ -49,7 +49,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         db = FirebaseFirestore.getInstance();
-        setTitle("Ciao  " + user.getEmail());
+        setTitle("Ciao  \t" + user.getEmail());
 
         hitch = findViewById(R.id.imageButton_hitch);
         driver = findViewById(R.id.imageButton_driver);
@@ -122,21 +122,30 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                         startActivity(m);
                     }
                 })
-                .setNegativeButton(R.string.elimina, new DialogInterface.OnClickListener() {
+                .setNeutralButton(R.string.elimina, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();
-                            confirm.setTitle("Alert");
-                            confirm.setMessage(getString(R.string.sure));
-                            confirm.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    delete();
-                                    recreate();
-                                }
-                            });
-                            confirm.show();
+                                final AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();
+                                confirm.setTitle("Alert");
+                                confirm.setMessage(getString(R.string.sure));
+                                confirm.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        delete();
+                                        confirm.cancel();
+                                    }
+                                });
+                                confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        confirm.cancel();
+                                    }
+                                });
+                                confirm.show();
                         }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {    dialog.cancel();    }
                 });
+
         AlertDialog alert = builder.create();
         alert.show();
     }
