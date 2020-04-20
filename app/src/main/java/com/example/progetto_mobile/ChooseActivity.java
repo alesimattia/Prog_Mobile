@@ -38,7 +38,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     private FirebaseUser user;
     private FirebaseFirestore db;
 
-    private String ris = null;
+    private Boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +59,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    final AtomicBoolean check = new AtomicBoolean(false);
 
+    final AtomicBoolean check = new AtomicBoolean(false);
     public void checkPatente() {
 
         DocumentReference docRef = db.collection("utenti").document(user.getUid());
@@ -70,15 +70,75 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        ris = document.getString("patente");
+                        String ris = document.getString("patente");
                         if (!ris.equals("") && ris != null)
-                            check.set(true);
+                            flag=true;
+                        check.set(true);
                     }
-                } else Log.w("tag", "errore accesso db");
+                }
+                else Log.w("tag", "errore accesso db");
             }
         });
-
     }
+
+
+
+    private void showDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseActivity.this);
+        builder.setMessage(R.string.choose2)
+                .setCancelable(false)
+                .setPositiveButton(R.string.inserisci, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent m = new Intent(ChooseActivity.this, InsertRide.class);
+                        startActivity(m);
+                    }
+                })
+                .setNeutralButton(R.string.elimina, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        final AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();
+                        confirm.setTitle("Alert");
+                        confirm.setMessage(getString(R.string.sure));
+                        confirm.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                delete();
+                                confirm.cancel();
+                            }
+                        });
+                        confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                confirm.cancel();
+                            }
+                        });
+                        confirm.show();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {    dialog.cancel();    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+
+
+    private void delete(){
+        CollectionReference docRef = db.collection("viaggi");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot current : task.getResult().getDocuments()) {
+                        if(current.getString("user").equals(user.getUid())) {
+                            db.collection("viaggi").document(current.getId()).delete();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
 
 
     @Override
@@ -98,73 +158,18 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void run() {
                         if (check.get()) {  //se ha completato il recupero della patente
-                            showDialog();
-                        } else {
-                            Toast.makeText(ChooseActivity.this, "Non hai una patente registrata!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(ChooseActivity.this, LicenceActivity.class);
-                            startActivity(intent);
+                            if (flag)
+                                showDialog();
+                            else {
+                                Toast.makeText(ChooseActivity.this, "Non hai una patente registrata!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(ChooseActivity.this, LicenceActivity.class);
+                                startActivity(intent);
+                            }
                         }
                     }
-                }, 1000);
+                 }, 1500);
                 break;
         }
-    }
-
-
-
-    private void showDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseActivity.this);
-        builder.setMessage(R.string.choose2)
-                .setCancelable(false)
-                .setPositiveButton(R.string.inserisci, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Intent m = new Intent(ChooseActivity.this, InsertRide.class);
-                        startActivity(m);
-                    }
-                })
-                .setNeutralButton(R.string.elimina, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                                final AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();
-                                confirm.setTitle("Alert");
-                                confirm.setMessage(getString(R.string.sure));
-                                confirm.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        delete();
-                                        confirm.cancel();
-                                    }
-                                });
-                                confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        confirm.cancel();
-                                    }
-                                });
-                                confirm.show();
-                        }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {    dialog.cancel();    }
-                });
-
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-
-    private void delete(){
-        CollectionReference docRef = db.collection("viaggi");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot current : task.getResult().getDocuments()) {
-                        if(current.getString("user").equals(user.getUid())) {
-                            db.collection("viaggi").document(current.getId()).delete();
-                        }
-                    }
-                }
-            }
-        });
     }
 
 

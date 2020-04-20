@@ -37,4 +37,6 @@
     <string name="deleted">Rides deleted correctly!</string>
     <string name="sure">Want you to delete all your rides?</string>
     <string name="back">Go back</string>
+    <string name="permission">Permissions are needed for contacting a driver</string>
+    <string name="licenceAlert">Driving licence should be more than 6 character long</string>
 </resources>

@@ -19,8 +19,7 @@
     <string name="registerTitle">Iscriviti ora!</string>
     <string name="emptyField2">Richiesto</string>
     <string name="telephone">Telefono</string>
-
-
+    <string name="licenceAlert">Patente dovrebbe essere almeno 6 caratteri</string>
     <!--per ChooseActivity -->
     <string name="choose">Scegli l\'attività</string>
     <string name="drive">Guida</string>
@@ -62,6 +61,9 @@
         <item>Passetto - Tavernelle</item>
     </string-array>
     <string name="added">Viaggio pubblicato correttamente</string>
+
+    <!--per ShowRides-->
     <string name="call">Contatta</string>
+    <string name="permission">Questi permessi servono per contattare il guidatore</string>
 
 </resources>

@@ -123,6 +123,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     editText_tel.requestFocus();
                     return;
                 }
+                if(!patente.isEmpty() && patente.length()<6){
+                    editText_password.setError(getResources().getString(R.string.licenceAlert));
+                    editText_password.requestFocus();
+                    return;
+                }
 
                 registration(email, password, nome, patente, data, tel);
                 break;
