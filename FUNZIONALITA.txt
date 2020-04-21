@@ -1,0 +1,6 @@
+-Registrazione su due fasi (anagrafica - auto, targa, patente)
+-Main screen 4 bottoni (guida, passaggi, le mie corse, modifica profilo)
+-Limit nella visualizzazione corse + touch sulla corsa per chiamare
+-Filtro corse da visualizzare
+-Trama sul background
+-Freccia indietro nelle activity
