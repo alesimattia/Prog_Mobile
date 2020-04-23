@@ -7,72 +7,124 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/imageButton_driver"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="12dp"
-        android:adjustViewBounds="true"
-        android:padding="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton_hitch"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_passeggero"
-        app:srcCompat="@drawable/driver" />
-
-    <ImageButton
         android:id="@+id/imageButton_hitch"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="13dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginBottom="42dp"
         android:adjustViewBounds="true"
-        android:padding="0dp"
+        android:padding="10dp"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_myRides"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageButton_driver"
-        app:layout_constraintTop_toBottomOf="@+id/textView_passeggero"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/passenger" />
 
+    <ImageButton
+        android:id="@+id/imageButton_driver"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="42dp"
+        android:adjustViewBounds="true"
+        android:padding="25dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_editProfile"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_hitch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_passenger"
+        app:srcCompat="@drawable/drive" />
+
     <TextView
-        android:id="@+id/textView_passeggero"
+        android:id="@+id/textView_passenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="41dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="40dp"
         android:text="@string/hitch"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_driver"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView_driver"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_guidatore"
+        android:id="@+id/textView_driver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="40dp"
         android:text="@string/drive"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton_driver"
-        app:layout_constraintEnd_toStartOf="@+id/textView_passeggero"
+        app:layout_constraintEnd_toStartOf="@+id/textView_passenger"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/imageButton_editProfile"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:padding="25dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView_editProfile"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_myRides"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_driver"
+        app:srcCompat="@drawable/user" />
+
+    <ImageButton
+        android:id="@+id/imageButton_myRides"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:padding="15dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textView_myRides"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton_editProfile"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_hitch"
+        app:srcCompat="@drawable/edit2" />
+
+
     <TextView
-        android:id="@+id/textView_titolo"
+        android:id="@+id/textView_editProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="@string/choose"
-        android:textAllCaps="false"
-        android:textColor="@color/primary_dark"
-        android:textSize="36sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginBottom="105dp"
+        android:paddingRight="20dp"
+        android:text="@string/profile"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView_myRides"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_editProfile" />
+
+    <TextView
+        android:id="@+id/textView_myRides"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="105dp"
+        android:paddingRight="15dp"
+        android:text="@string/myrides"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView_editProfile"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_myRides" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

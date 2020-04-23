@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -42,7 +43,8 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
     public RadioGroup radioGroup;
     public Button btnOrario;
     public Button btnData;
-    public Button btnOk;
+    public ImageButton btnOk;
+    public ImageButton btnBack;
 
     private String tratta=null;
     private String ora = null;
@@ -83,6 +85,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
         radioGroup = findViewById(R.id.radioGroup);
         btnOrario = findViewById(R.id.button_orario);
         btnData = findViewById(R.id.button);
+        btnBack=findViewById(R.id.button_back);
 
         btnOrario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,12 +104,17 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
         });
 
 
-        btnOk.setOnClickListener(new View.OnClickListener() {   //anche con gestione dichiarativa
+        btnOk.setOnClickListener(new View.OnClickListener() {   //oppure con gestione dichiarativa
             @Override
             public void onClick(View v) {
                 sumbit(tratta, ora, data, verso, posti);
             }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+           @Override public void onClick(View v) {   finish();   }
+        });
+
     }
 
 

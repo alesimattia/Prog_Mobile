@@ -86,7 +86,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ChooseActivity.this);
         builder.setMessage(R.string.choose2)
-                .setCancelable(false)
+                .setCancelable(true)
                 .setPositiveButton(R.string.inserisci, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent m = new Intent(ChooseActivity.this, InsertRide.class);
@@ -97,7 +97,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         final AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();
-                        confirm.setTitle("Alert");
+                        confirm.setTitle(R.string.sure);
                         confirm.setMessage(getString(R.string.sure));
                         confirm.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {

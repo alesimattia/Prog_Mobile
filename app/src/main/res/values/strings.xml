@@ -20,17 +20,21 @@
     <string name="emptyField2">Richiesto</string>
     <string name="telephone">Telefono</string>
     <string name="licenceAlert">Patente dovrebbe essere almeno 6 caratteri</string>
+
     <!--per ChooseActivity -->
     <string name="choose">Scegli l\'attività</string>
     <string name="drive">Guida</string>
     <string name="hitch">Trova Passaggi</string>
     <string name="dbWriteErr">Errore di scrittura nel database</string>
+    <string name="profile">Modifica Profilo</string>
+    <string name="myrides">I Miei Viaggi</string>
     <!--per il dialog-->
     <string name="choose2">Cosa vuoi fare?</string>
     <string name="inserisci">Aggiungi nuovo viaggio </string>
     <string name="elimina">Elimina i viaggi</string>
     <string name="deleted">Viaggi eliminati correttamente!</string>
-    <string name="sure">Sei sicuro di eliminare tutti i tuoi viaggi?</string>
+    <string name="sure">Sei sicuro?</string>
+    <string name="sure_detail">Stai per eliminare tutti i tuoi viaggi</string>
     <string name="back">Annulla</string>
 
 
@@ -48,7 +52,6 @@
     <string name="ora">Orario</string>
     <string name="posti">Posti disponibili:</string>
     <string name="data">Data</string>
-    <string name="ok">Pubblica</string>
     <string-array name="spinner_posti">
         <item>1</item>
         <item>2</item>
@@ -66,5 +69,8 @@
     <!--per ShowRides-->
     <string name="call">Contatta</string>
     <string name="permission">Questi permessi servono per contattare il guidatore</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

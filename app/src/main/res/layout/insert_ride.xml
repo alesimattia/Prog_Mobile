@@ -7,6 +7,17 @@
     tools:layout_editor_absoluteY="81dp">
 
 
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/back"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView_Tratta"
         android:layout_width="wrap_content"
@@ -115,16 +126,16 @@
         app:layout_constraintStart_toEndOf="@+id/textView_posti"
         app:layout_constraintTop_toTopOf="@+id/textView_posti" />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/ok" />
 
     <TextView
         android:id="@+id/textView_posti"
