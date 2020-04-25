@@ -8,12 +8,12 @@
 
 
     <ImageButton
-        android:id="@+id/button_back"
+        android:id="@+id/button_back1"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/back"
+        android:background="@drawable/back_arrow"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

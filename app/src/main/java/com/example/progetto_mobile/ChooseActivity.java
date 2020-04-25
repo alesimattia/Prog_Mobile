@@ -105,7 +105,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                                 confirm.cancel();
                             }
                         });
-                        confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.back), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 confirm.cancel();
                             }
@@ -113,7 +113,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                         confirm.show();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.back, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {    dialog.cancel();    }
                 });
 

@@ -85,7 +85,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
         radioGroup = findViewById(R.id.radioGroup);
         btnOrario = findViewById(R.id.button_orario);
         btnData = findViewById(R.id.button);
-        btnBack=findViewById(R.id.button_back);
+        btnBack=findViewById(R.id.button_back1);
 
         btnOrario.setOnClickListener(new View.OnClickListener() {
             @Override

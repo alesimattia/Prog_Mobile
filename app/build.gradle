@@ -5,6 +5,7 @@ android {
     defaultConfig {
         applicationId "com.example.progetto_mobile"
         minSdkVersion 23
+        vectorDrawables.useSupportLibrary = true    //libreria di supporto (se minSdk<24) per i colori parametrici nelle risorse SVG
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

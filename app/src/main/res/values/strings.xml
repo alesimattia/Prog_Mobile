@@ -9,17 +9,16 @@
     <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
 
 
-    <!--per register_layout-->
+    <!--per i fragment di registrazione-->
+    <string name="registerTitle">Iscriviti ora!</string>
     <string name="name">Nome</string>
     <string name="surname">Cognome</string>
-    <string name="birth">Data di nascita (gg/mm/aaaa)</string>
-    <string name="id">Matricola</string>
     <string name="licence">Patente (facoltativa)</string>
-    <string name="cancel">Annulla</string>
-    <string name="registerTitle">Iscriviti ora!</string>
     <string name="emptyField2">Richiesto</string>
     <string name="telephone">Telefono</string>
-    <string name="licenceAlert">Patente dovrebbe essere almeno 6 caratteri</string>
+    <string name="licenceAlert">Patente almeno 6 caratteri</string>
+    <string name="register1">Dati personali</string>
+    <string name="register2">Dati Account</string>
 
     <!--per ChooseActivity -->
     <string name="choose">Scegli l\'attività</string>
@@ -72,5 +71,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

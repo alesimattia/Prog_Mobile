@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 //Classe per il time-picker come da documentazione Google
-//Eliminata interfaccia "onTimeSetListener" --> gestito in Inserisci_tratta.class
+//Eliminata interfaccia "onTimeSetListener" --> gestito in InsertRide.class
 
 public class TimePickerFragment extends DialogFragment {
 

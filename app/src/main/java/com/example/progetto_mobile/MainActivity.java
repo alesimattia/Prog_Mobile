@@ -54,6 +54,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginBtn.setOnClickListener(this);
     }
 
+    public void login(String email, String password) {
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Log.w("login_error", "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -79,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     passwordText.requestFocus();
                     return;
                 }
+
                 login(email, password);
                 break;
             }
@@ -94,24 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void login(String email, String password) {
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Log.w("login_error", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
 
 }
 
