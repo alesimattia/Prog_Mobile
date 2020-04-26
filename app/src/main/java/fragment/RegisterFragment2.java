@@ -1,4 +1,4 @@
-package com.example.progetto_mobile;
+package fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.progetto_mobile.R;
+import com.example.progetto_mobile.RegisterActivity;
 
 public class RegisterFragment2 extends Fragment {
 

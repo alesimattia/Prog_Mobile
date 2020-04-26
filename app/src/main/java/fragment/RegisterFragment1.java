@@ -1,4 +1,4 @@
-package com.example.progetto_mobile;
+package fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.progetto_mobile.MainActivity;
+import com.example.progetto_mobile.R;
 
 public class RegisterFragment1 extends Fragment {
 
@@ -52,9 +55,9 @@ public class RegisterFragment1 extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        editText_nome = getView().findViewById(R.id.editText_nome);
-        editText_cognome = getView().findViewById(R.id.editText_cognome);
-        editText_tel = getView().findViewById(R.id.editText_tel);
+        editText_nome = view.findViewById(R.id.editText_nome);      //anche getView().findView...
+        editText_cognome = view.findViewById(R.id.editText_cognome);
+        editText_tel = view.findViewById(R.id.editText_tel);
 
         btnNext = getView().findViewById(R.id.button_next);
         btnBack=getView().findViewById(R.id.button_back1);

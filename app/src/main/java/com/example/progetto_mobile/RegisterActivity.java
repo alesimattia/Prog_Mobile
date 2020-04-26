@@ -20,6 +20,8 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
 
+import fragment.RegisterFragment1;
+
 
 public class RegisterActivity extends AppCompatActivity{
 

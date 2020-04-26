@@ -8,33 +8,49 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+
 public class ShowRides extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private LinearLayout layout;
-    public LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT);
+    private RecyclerView recyclerView;
+    private RideAdapter rideAdapter;
+    private ArrayList<Ride> corse = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.showrides_layout);
-        layout = findViewById(R.id.linear);
+        setTitle(R.string.ridesTitle);
+
+
+        recyclerView = findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);     //dimensioni contenuto fisse -> migliora performance
+        recyclerView.setLayoutManager(new LinearLayoutManager(ShowRides.this));
+
+        rideAdapter = new RideAdapter(corse);
+        recyclerView.setAdapter(rideAdapter);
+
+
 
         CollectionReference docRef = db.collection("viaggi");
         docRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -43,25 +59,11 @@ public class ShowRides extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (final DocumentSnapshot document : task.getResult().getDocuments()) {
-                        TextView dynamicTextView = new TextView(ShowRides.this);
-                        dynamicTextView.setLayoutParams(params);
-                        dynamicTextView.setText(document.get("tratta") + "   |" + document.get("verso") + "|  " + "  Posti: " +
-                                document.get("posti") + "\n" + document.get("ora") + " -- " + document.get("data"));
-                        layout.addView(dynamicTextView);
+                        Ride ride=new Ride(document.get("tratta").toString(), document.get("verso").toString(),
+                                            document.get("posti").toString(), document.get("ora").toString(), document.get("data").toString());
+                        corse.add(ride);
+                        rideAdapter.notifyDataSetChanged();      //aggiorna la recyclerView con le modifiche effettuate alla struttura
 
-
-                        Button btnCall = new Button(ShowRides.this);
-                        btnCall.setOnClickListener(new android.view.View.OnClickListener() {
-                            String number = document.get("telefono").toString();
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", number, null)));
-                            }
-                        });
-
-                        btnCall.setText(R.string.call);
-                        btnCall.setLayoutParams(params);
-                        layout.addView(btnCall);
                     }
                 }
                 else Log.w("tag", "errore accesso db");

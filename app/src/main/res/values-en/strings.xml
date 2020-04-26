@@ -43,4 +43,6 @@
     <string name="myrides">My Rides</string>
     <string name="sure_detail">You will delete all your rides</string>
     <string name="register1">Enter your personal info</string>
+    <string name="register2">Account data</string>
+    <string name="ridesTitle">Find your Hitch-ride!</string>
 </resources>

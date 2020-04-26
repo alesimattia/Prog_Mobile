@@ -37,7 +37,11 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-                                                                        //spinner                          //selezione tempo
+
+import fragment.DatePickerFragment;
+import fragment.TimePickerFragment;
+
+//spinner                          //selezione tempo
 public class InsertRide extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener, RadioGroup.OnCheckedChangeListener {
 
     public RadioGroup radioGroup;
@@ -121,8 +125,8 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
 
     public void onRadioButtonClick (View v){        //gestione dichiarativa (xml) dei radiobutton
         int checked=radioGroup.getCheckedRadioButtonId();
-        RadioButton button = v.findViewById(checked);
-        verso = button.getText().toString();
+        RadioButton radio = v.findViewById(checked);
+        verso = radio.getText().toString();
     }
 
 
@@ -190,7 +194,7 @@ public class InsertRide extends AppCompatActivity implements AdapterView.OnItemS
 
 
     public void sumbit(final String tratta,final String ora, final String data, final String verso, final String posti){
-        if (radioGroup.getCheckedRadioButtonId()==0 || ora==null || data==null)
+        if (verso==null || ora==null || data==null)
             Toast.makeText(InsertRide.this, R.string.emptyField, Toast.LENGTH_SHORT).show();
         else {
             getNumber();
