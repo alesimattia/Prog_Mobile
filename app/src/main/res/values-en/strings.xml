@@ -7,10 +7,7 @@
     <string name="register">Sign Up</string>
     <string name="name">First Name</string>
     <string name="surname">Last Name</string>
-    <string name="birth">Date of birth (dd/mm/yyyy)</string>
-    <string name="id">Serial</string>
     <string name="licence">Driving licence (optional)</string>
-    <string name="cancel">Cancel</string>
     <string name="registerTitle">Join now!</string>
     <string name="emptyField2">Data requested</string>
     <string name="choose">Choose Action</string>
@@ -31,13 +28,11 @@
     <string name="inserisci">Insert ride</string>
     <string name="elimina">Delete a ride</string>
     <string name="data">Date</string>
-    <string name="ok">Share</string>
     <string name="call">Call</string>
     <string name="choose2">Choose what to do</string>
     <string name="deleted">Rides deleted correctly!</string>
     <string name="sure">Are you sure?</string>
     <string name="back">Go back</string>
-    <string name="permission">Permissions are needed for contacting a driver</string>
     <string name="licenceAlert">Driving licence should be more than 6 character long</string>
     <string name="profile">Edit profile info</string>
     <string name="myrides">My Rides</string>
@@ -45,4 +40,6 @@
     <string name="register1">Enter your personal info</string>
     <string name="register2">Account data</string>
     <string name="ridesTitle">Find your Hitch-ride!</string>
+    <string name="direction">Direction:</string>
+    <string name="seats">Available Seats:</string>
 </resources>

@@ -19,18 +19,18 @@ public class RideAdapter extends RecyclerView.Adapter<RideAdapter.CViewHolder>{
     }
 
 
-            class CViewHolder extends RecyclerView.ViewHolder {
-                TextView textView_tratta, textView_verso, textView_posti, textView_ora, textView_data;
+    class CViewHolder extends RecyclerView.ViewHolder {
+        TextView textView_tratta, textView_verso, textView_posti, textView_ora, textView_data;
 
-                CViewHolder(@NonNull View itemView) {
-                    super(itemView);
-                    textView_tratta = itemView.findViewById(R.id.tratta);
-                    textView_verso = itemView.findViewById(R.id.verso);
-                    textView_posti = itemView.findViewById(R.id.posti);
-                    textView_ora = itemView.findViewById(R.id.ora);
-                    textView_data = itemView.findViewById(R.id.data);
-                }
-            }
+        CViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textView_tratta = itemView.findViewById(R.id.tratta);
+            textView_verso = itemView.findViewById(R.id.verso);
+            textView_posti = itemView.findViewById(R.id.posti);
+            textView_ora = itemView.findViewById(R.id.ora);
+            textView_data = itemView.findViewById(R.id.data);
+        }
+    }
 
 
 

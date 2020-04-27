@@ -2,14 +2,14 @@ package com.example.progetto_mobile;
 
 public class Ride {
 
-    private String tratta, verso, posti, ora, data1;
+    private String tratta, verso, posti, ora, data;
 
-    public Ride(String tratta, String verso, String posti, String ora, String data1) {
+    public Ride(String tratta, String verso, String posti, String ora, String data) {
         this.tratta=tratta;
         this.verso=verso;
         this.posti=posti;
         this.ora=ora;
-        this.data1=data1;
+        this.data=data;
     }
 
     public String getTratta() {
@@ -25,7 +25,7 @@ public class Ride {
         return ora;
     }
     public String getData() {
-        return data1;
+        return data;
     }
 
 

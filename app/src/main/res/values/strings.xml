@@ -67,8 +67,7 @@
 
     <!--per ShowRides-->
     <string name="call">Contatta</string>
-    <string name="permission">Questi permessi servono per contattare il guidatore</string>
     <string name="ridesTitle">Scegli il tuo passaggio!</string>
-
-
+    <string name="direction">Direzione:</string>
+    <string name="seats">Posti:</string>
 </resources>
