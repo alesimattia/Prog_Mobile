@@ -18,10 +18,10 @@
     <string name="message">Provide a driving licence number to start driving</string>
     <string name="licence2">Licence number</string>
     <string name="telephone">Cellphone Number</string>
-    <string name="seleziona">Select ride</string>
+    <string name="seleziona">Where do you go?</string>
     <string name="andata">Going</string>
     <string name="ritorno">Return</string>
-    <string name="scegliOra">Choose when to start</string>
+    <string name="scegliOra">Starting now?</string>
     <string name="ora">Hour</string>
     <string name="posti">Available seats:</string>
     <string name="added">Ride posted correctly</string>
@@ -42,4 +42,5 @@
     <string name="ridesTitle">Find your Hitch-ride!</string>
     <string name="direction">Direction:</string>
     <string name="seats">Available Seats:</string>
+    <string name="info">Trip info</string>
 </resources>
