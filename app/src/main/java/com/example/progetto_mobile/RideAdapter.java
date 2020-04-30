@@ -10,25 +10,43 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RideAdapter extends RecyclerView.Adapter<RideAdapter.CViewHolder>{
+public class RideAdapter extends RecyclerView.Adapter<RideAdapter.CViewHolder> {
 
-    private ArrayList<Ride> corsa;
+    private ArrayList<Ride> corse;
+    private OnItemClickListener listener;
 
     public RideAdapter(ArrayList<Ride> corsa){
-        this.corsa=corsa;
+        this.corse = corsa;
     }
 
 
-    class CViewHolder extends RecyclerView.ViewHolder {
+    public interface OnItemClickListener {
+        public void onItemClick(View view, int position);
+    }
+
+    public void setClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    class CViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         TextView textView_tratta, textView_verso, textView_posti, textView_ora, textView_data;
 
         CViewHolder(@NonNull View itemView) {
             super(itemView);
+
             textView_tratta = itemView.findViewById(R.id.tratta);
             textView_verso = itemView.findViewById(R.id.verso);
             textView_posti = itemView.findViewById(R.id.posti);
             textView_ora = itemView.findViewById(R.id.ora);
             textView_data = itemView.findViewById(R.id.data);
+
+            itemView.setOnClickListener(this);      //lega il listener
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.onItemClick(v, getAdapterPosition());
         }
     }
 
@@ -43,17 +61,14 @@ public class RideAdapter extends RecyclerView.Adapter<RideAdapter.CViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull CViewHolder holder, int position) {        //popoliamo gli elementi
-        holder.textView_tratta.setText(corsa.get(position).getTratta());
-        holder.textView_verso.setText(corsa.get(position).getVerso());
-        holder.textView_posti.setText(corsa.get(position).getPosti());
-        holder.textView_ora.setText(corsa.get(position).getOra());
-        holder.textView_data.setText(corsa.get(position).getData());
+        holder.textView_tratta.setText(corse.get(position).getTratta());
+        holder.textView_verso.setText(corse.get(position).getVerso());
+        holder.textView_posti.setText(corse.get(position).getPosti());
+        holder.textView_ora.setText(corse.get(position).getOra());
+        holder.textView_data.setText(corse.get(position).getData());
     }
 
     @Override
-    public int getItemCount() {  return corsa.size(); }
-
-
-
+    public int getItemCount() {  return corse.size(); }
 
 }

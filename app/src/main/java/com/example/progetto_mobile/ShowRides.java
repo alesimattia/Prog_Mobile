@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,14 +26,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ShowRides extends AppCompatActivity {
+public class ShowRides extends AppCompatActivity  {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private RecyclerView recyclerView;
     private RideAdapter rideAdapter;
     private ArrayList<Ride> corse = new ArrayList<>();
-    private View element;
+    private ArrayList<String> tel = new ArrayList<>();
 
 
     @Override
@@ -55,48 +55,57 @@ public class ShowRides extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (final DocumentSnapshot document : task.getResult().getDocuments())
+                if (task.isSuccessful())
+                    for (final DocumentSnapshot document : task.getResult().getDocuments()) {
+                        tel.add(document.get("telefono").toString());
                         putDocument(document);
-                }
-                else Log.w("tag", "errore accesso db");
+                    }
+                else   Log.w("tag", "errore accesso db");
             }
         });
     }
 
 
 
-    private void putDocument(final DocumentSnapshot document){
+    private void putDocument(DocumentSnapshot document) {
 
+        if (! isExpired(document.get("data").toString())) {
+            Ride ride = new Ride(document.get("tratta").toString(),
+                    getString(R.string.direction) + "\t\t" + document.get("verso").toString(),
+                    getString(R.string.seats) + "\t\t" + document.get("posti").toString(),
+                    document.get("ora").toString(),
+                    document.get("data").toString());
+            corse.add(ride);
+
+            rideAdapter.setClickListener(new RideAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + tel.get(position)));
+                    startActivity(intent);
+                }
+            });     /*Il listener che setta il numero di telefono nell'intent, è asincrono rispetto alle letture del documento ->
+                          è necessario salvare in una variabile i telefoni estratti dal db,
+                          in modo da modificare il comportamento dell'intent per ogni elemento della recyclerView */
+            rideAdapter.notifyDataSetChanged();     //aggiorna la recyclerView con le modifiche effettuate alla struttura
+        }
+    }
+
+
+    private boolean isExpired(String docDate){
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");   //mm minuscolo corrisponde a "minute"
         Date current = Calendar.getInstance().getTime();
         try {
-            Date data = format.parse(document.get("data").toString());
-            if (data.after(current)) {
-                Ride ride = new Ride(document.get("tratta").toString(),
-                        getString(R.string.direction) + "\t\t" + document.get("verso").toString(),
-                        getString(R.string.seats) + "\t\t" + document.get("posti").toString(),
-                        document.get("ora").toString(),
-                        document.get("data").toString());
-                corse.add(ride);
-                rideAdapter.notifyDataSetChanged();    //aggiorna la recyclerView con le modifiche effettuate alla struttura
-
-                /**NON FUNZIONA**/
-                View inflatedView = getLayoutInflater().inflate(R.layout.ride, null);
-                Button obj = inflatedView.findViewById(R.id.contact);
-                obj.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:" + document.get("telefono").toString()));
-                        startActivity(intent);
-                    }
-                });
-            }
+            Date data = format.parse(docDate);      //obbligato in un try-catch
+            if (data.after(current)) return false;
+            return true;
         }
         catch (ParseException e) {
             e.printStackTrace();
             Log.w("tag", "errore lettura data");
+            return true;
         }
     }
+
+
 }
