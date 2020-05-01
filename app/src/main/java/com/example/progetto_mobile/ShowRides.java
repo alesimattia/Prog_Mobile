@@ -67,7 +67,7 @@ public class ShowRides extends AppCompatActivity  {
 
 
 
-    private void putDocument(DocumentSnapshot document) {
+    public void putDocument(DocumentSnapshot document) {
 
         if (! isExpired(document.get("data").toString())) {
             Ride ride = new Ride(document.get("tratta").toString(),
@@ -92,7 +92,7 @@ public class ShowRides extends AppCompatActivity  {
     }
 
 
-    private boolean isExpired(String docDate){
+    public boolean isExpired(String docDate){
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");   //mm minuscolo corrisponde a "minute"
         Date current = Calendar.getInstance().getTime();
         try {

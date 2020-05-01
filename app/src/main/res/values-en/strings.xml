@@ -26,7 +26,7 @@
     <string name="posti">Available seats:</string>
     <string name="added">Ride posted correctly</string>
     <string name="inserisci">Insert ride</string>
-    <string name="elimina">Delete a ride</string>
+    <string name="elimina">Yes, delete</string>
     <string name="data">Date</string>
     <string name="call">Call</string>
     <string name="choose2">Choose what to do</string>
@@ -43,4 +43,6 @@
     <string name="direction">Direction:</string>
     <string name="seats">Available Seats:</string>
     <string name="info">Trip info</string>
+    <string name="viaggi">Your Trips</string>
+    <string name="delete">Delete this ride?</string>
 </resources>

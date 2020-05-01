@@ -33,7 +33,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
 
     private ImageButton hitch;
     private ImageButton driver;
-
+    private ImageButton myRides;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private FirebaseFirestore db;
@@ -53,9 +53,11 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
 
         hitch = findViewById(R.id.imageButton_hitch);
         driver = findViewById(R.id.imageButton_driver);
+        myRides = findViewById(R.id.imageButton_myRides);
 
         hitch.setOnClickListener(this);
         driver.setOnClickListener(this);
+        myRides.setOnClickListener(this);
     }
 
 
@@ -168,6 +170,11 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                         }
                     }
                  }, 1500);
+                break;
+
+            case R.id.imageButton_myRides:
+                Intent myRidesIntent=new Intent(this, MyRides.class);
+                startActivity(myRidesIntent);
                 break;
         }
     }
