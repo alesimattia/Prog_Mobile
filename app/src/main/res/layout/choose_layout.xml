@@ -15,7 +15,7 @@
         android:adjustViewBounds="true"
         android:padding="10dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton_myRides"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_my_rides"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton_driver"
         app:layout_constraintTop_toBottomOf="@+id/textView_passenger"
@@ -31,7 +31,7 @@
         android:adjustViewBounds="true"
         android:padding="25dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton_editProfile"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_my_profile"
         app:layout_constraintEnd_toStartOf="@+id/imageButton_hitch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_driver"
@@ -71,7 +71,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton_editProfile"
+        android:id="@+id/imageButton_my_profile"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="37dp"
@@ -80,14 +80,14 @@
         android:adjustViewBounds="true"
         android:padding="25dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView_editProfile"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton_myRides"
+        app:layout_constraintBottom_toTopOf="@+id/textView_myProfile"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_my_rides"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton_driver"
         app:srcCompat="@drawable/user" />
 
     <ImageButton
-        android:id="@+id/imageButton_myRides"
+        android:id="@+id/imageButton_my_rides"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="37dp"
@@ -97,13 +97,13 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/textView_myRides"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_editProfile"
+        app:layout_constraintStart_toEndOf="@+id/imageButton_my_profile"
         app:layout_constraintTop_toBottomOf="@+id/imageButton_hitch"
         app:srcCompat="@drawable/edit2" />
 
 
     <TextView
-        android:id="@+id/textView_editProfile"
+        android:id="@+id/textView_myProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -114,7 +114,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView_myRides"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_editProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_my_profile" />
 
     <TextView
         android:id="@+id/textView_myRides"
@@ -126,7 +126,7 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_editProfile"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_myRides" />
+        app:layout_constraintStart_toEndOf="@+id/textView_myProfile"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_my_rides" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

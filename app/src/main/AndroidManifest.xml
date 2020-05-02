@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/icon_launcher"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyRides"></activity>
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".MyRides" />
         <activity android:name=".ShowRides" />
         <activity android:name=".InsertRide" />
         <activity android:name=".ChooseActivity" />

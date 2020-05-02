@@ -45,4 +45,7 @@
     <string name="info">Trip info</string>
     <string name="viaggi">Your Trips</string>
     <string name="delete">Delete this ride?</string>
+    <string name="edit">Edit Profile</string>
+    <string name="password">New Password</string>
+    <string name="confirm">Confirm Password</string>
 </resources>

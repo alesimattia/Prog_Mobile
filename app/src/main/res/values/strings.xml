@@ -76,4 +76,9 @@
     <string name="viaggi">I tuoi viaggi</string>
     <string name="delete">Vuoi eliminare questo viaggio?</string>
     <string name="elimina">Elimina </string>
+
+    <!--per my_profile -->
+    <string name="edit">Aggiorna Profilo</string>
+    <string name="password">Nuova Password</string>
+    <string name="confirm">Conferma Password</string>
 </resources>

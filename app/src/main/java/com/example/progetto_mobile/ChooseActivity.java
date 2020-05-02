@@ -1,6 +1,5 @@
 package com.example.progetto_mobile;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,6 +31,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     private ImageButton hitch;
     private ImageButton driver;
     private ImageButton myRides;
+    private ImageButton myProfile;
+
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private FirebaseFirestore db;
@@ -53,11 +52,13 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
 
         hitch = findViewById(R.id.imageButton_hitch);
         driver = findViewById(R.id.imageButton_driver);
-        myRides = findViewById(R.id.imageButton_myRides);
+        myRides = findViewById(R.id.imageButton_my_rides);
+        myProfile = findViewById(R.id.imageButton_my_profile);
 
         hitch.setOnClickListener(this);
         driver.setOnClickListener(this);
         myRides.setOnClickListener(this);
+        myProfile.setOnClickListener(this);
     }
 
 
@@ -74,8 +75,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                     if (document.exists()) {
                         String ris = document.getString("patente");
                         if (!ris.equals("") && ris != null)
-                            flag=true;
-                        check.set(true);
+                            flag=true;  //c'è una patente registrata
+                        check.set(true);  //ha completato la lettura
                     }
                 }
                 else Log.w("tag", "errore accesso db");
@@ -172,9 +173,14 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                  }, 1500);
                 break;
 
-            case R.id.imageButton_myRides:
+            case R.id.imageButton_my_rides:
                 Intent myRidesIntent=new Intent(this, MyRides.class);
                 startActivity(myRidesIntent);
+                break;
+
+            case R.id.imageButton_my_profile:
+                Intent myProfileIntent=new Intent(this, MyProfile.class);
+                startActivity(myProfileIntent);
                 break;
         }
     }
