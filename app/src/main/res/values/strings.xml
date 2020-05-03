@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Unicar</string>
+    <string name="email">e-Mail</string>
+    <string name="password">Password</string>
 
     <!--per activity_main-->
     <string name="err_richiesto">Dato Richiesto</string>
@@ -30,7 +32,7 @@
     <!--per il dialog-->
     <string name="choose2">Cosa vuoi fare?</string>
     <string name="inserisci">Aggiungi nuovo viaggio </string>
-
+    <string name="new_password">Nuova Password</string>
     <string name="deleted">Viaggi eliminati correttamente!</string>
     <string name="sure">Sei sicuro?</string>
     <string name="sure_detail">Stai per eliminare tutti i tuoi viaggi</string>
@@ -40,7 +42,7 @@
     <!--per LicenceActivity-->
     <string name="noLicence">Non hai inserito una patente</string>
     <string name="message">Fornisci un codice per iniziare a guidare</string>
-    <string name="licence2">Numero Patente</string>
+    <string name="licence2">Patente N°</string>
 
 
     <!--per InsertRide-->
@@ -66,7 +68,7 @@
     </string-array>
     <string name="added">Viaggio pubblicato correttamente</string>
 
-    <!--per ShowRides-->
+    <!--per showRides-->
     <string name="call">Contatta</string>
     <string name="ridesTitle">Scegli il tuo passaggio!</string>
     <string name="direction">Direzione:</string>
@@ -77,8 +79,10 @@
     <string name="delete">Vuoi eliminare questo viaggio?</string>
     <string name="elimina">Elimina </string>
 
-    <!--per my_profile -->
+    <!--per profile -->
     <string name="edit">Aggiorna Profilo</string>
-    <string name="password">Nuova Password</string>
     <string name="confirm">Conferma Password</string>
+    <string name="update">Aggiorna</string>
+    <string name="updated">Profilo aggiornato correttamente</string>
+    <string name="save">Confermi i dati?</string>
 </resources>

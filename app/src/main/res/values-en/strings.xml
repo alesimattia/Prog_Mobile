@@ -16,7 +16,7 @@
     <string name="dbWriteErr">Database writing error</string>
     <string name="noLicence">You don\'t have a driving licence</string>
     <string name="message">Provide a driving licence number to start driving</string>
-    <string name="licence2">Licence number</string>
+    <string name="licence2">Licence N.</string>
     <string name="telephone">Cellphone Number</string>
     <string name="seleziona">Where do you go?</string>
     <string name="andata">Going</string>
@@ -46,6 +46,11 @@
     <string name="viaggi">Your Trips</string>
     <string name="delete">Delete this ride?</string>
     <string name="edit">Edit Profile</string>
-    <string name="password">New Password</string>
+    <string name="new_password">New Password</string>
     <string name="confirm">Confirm Password</string>
+    <string name="update">Update</string>
+    <string name="email">e-Mail</string>
+    <string name="password">Password</string>
+    <string name="updated">Profile Updated Correctly</string>
+    <string name="save">Confirm Updating?</string>
 </resources>

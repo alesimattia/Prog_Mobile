@@ -179,7 +179,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
             case R.id.imageButton_my_profile:
-                Intent myProfileIntent=new Intent(this, MyProfile.class);
+                Intent myProfileIntent=new Intent(this, ProfileActivity.class);
                 startActivity(myProfileIntent);
                 break;
         }

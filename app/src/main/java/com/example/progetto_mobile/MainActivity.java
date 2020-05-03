@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(intent);
                         }
                         else {
-                            Log.w("login_error", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Log.w("login_error", "Errore nel login", task.getException());
+                            Toast.makeText(MainActivity.this, "Errore nel login", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
