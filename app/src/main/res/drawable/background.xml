@@ -1,8 +1,0 @@
-<vector android:height="10dp" android:viewportHeight="200"
-    android:viewportWidth="200" android:width="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:tileMode="repeat"
-    android:gravity="fill">
-    <path android:fillColor="#ffffff" android:pathData="M0,0h200v200h-200z"/>
-    <path android:fillColor="@color/accent" android:pathData="M100,0l-100,100l100,0l0,100l100,-100l0,-100z"/>
-</vector>

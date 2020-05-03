@@ -9,7 +9,7 @@
     <string name="passAlert">Password minimo 6 caratteri</string>
     <string name="errorSignup">Errore nella registrazione</string>
     <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
-
+    <string name="login">Accedi</string>
 
     <!--per i fragment di registrazione-->
     <string name="registerTitle">Iscriviti ora!</string>
@@ -37,7 +37,7 @@
     <string name="sure">Sei sicuro?</string>
     <string name="sure_detail">Stai per eliminare tutti i tuoi viaggi</string>
     <string name="back">Annulla</string>
-
+    <string name="delete_all">Elimina tutti i viaggi</string>
 
     <!--per LicenceActivity-->
     <string name="noLicence">Non hai inserito una patente</string>
@@ -73,11 +73,13 @@
     <string name="ridesTitle">Scegli il tuo passaggio!</string>
     <string name="direction">Direzione:</string>
     <string name="seats">Posti:</string>
+    <string name="message2">Tap per contattare il guidatore</string>
 
     <!--per my_rides-->
     <string name="viaggi">I tuoi viaggi</string>
     <string name="delete">Vuoi eliminare questo viaggio?</string>
     <string name="elimina">Elimina </string>
+    <string name="message3">Tap su un viaggio per eliminarlo </string>
 
     <!--per profile -->
     <string name="edit">Aggiorna Profilo</string>

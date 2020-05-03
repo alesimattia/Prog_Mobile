@@ -3,12 +3,12 @@ package com.example.progetto_mobile;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,8 +23,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button registraBtn;
-    private Button loginBtn;
+    private ImageButton registraBtn;
+    private ImageButton loginBtn;
     private EditText emailText;
     private EditText passwordText;
 
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public String password = null;
 
     private FirebaseAuth mAuth;
-    private FirebaseUser user;
 
 
     @Override
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 1);
 
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         registraBtn = findViewById(R.id.registerBtn);
         loginBtn = findViewById(R.id.loginBtn);
@@ -55,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loginBtn.setOnClickListener(this);
     }
 
+
     public void login(String email, String password) {
 
         mAuth.signInWithEmailAndPassword(email, password)
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            user = mAuth.getCurrentUser();
+                            //mAuth.getCurrentUser();
                             Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
                             startActivity(intent);
                         }
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.loginBtn: {
 
@@ -109,12 +108,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(regIntent);
                 break;
             }
-            default:    //per protezione - non tradotto
-                Toast.makeText(this, "Not allowed", Toast.LENGTH_LONG).show();
         }
     }
-
-
 
 
 }

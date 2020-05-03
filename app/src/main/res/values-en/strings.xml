@@ -53,4 +53,8 @@
     <string name="password">Password</string>
     <string name="updated">Profile Updated Correctly</string>
     <string name="save">Confirm Updating?</string>
+    <string name="message3">Tap on the ride to delete</string>
+    <string name="message2">Tap to call the driver</string>
+    <string name="login">Login</string>
+    <string name="delete_all">Delete all my travels</string>
 </resources>

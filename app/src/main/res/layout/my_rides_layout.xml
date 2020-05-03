@@ -8,10 +8,32 @@
     tools:context=".MyRides"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/back_arrow"
+        android:onClick="back"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/back"
+        android:text="@string/message3"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textColor="@color/accent"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"/>
 
 </RelativeLayout>

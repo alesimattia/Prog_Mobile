@@ -3,11 +3,6 @@ package fragment;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +12,29 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+
 import com.example.progetto_mobile.InsertRide;
 import com.example.progetto_mobile.R;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
 
-public class InsertFragment2 extends Fragment implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
+public class InsertFragment2 extends Fragment implements DatePickerDialog.OnDateSetListener{
 
     private ImageButton btnOrario;
     private ImageButton btnData;
     private ImageButton btnOk;
     private ImageButton btnBack;
-
+    private TextView textView_ora;
     private String ora = null;
     private String data = null;
+
 
     private Bundle bundle;
 
@@ -60,6 +62,7 @@ public class InsertFragment2 extends Fragment implements TimePickerDialog.OnTime
         btnBack = view.findViewById(R.id.button_back2);
         btnOrario = view.findViewById(R.id.button_orario);
         btnData = view.findViewById(R.id.button);
+        textView_ora=view.findViewById(R.id.textView_ora);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -72,11 +75,10 @@ public class InsertFragment2 extends Fragment implements TimePickerDialog.OnTime
         btnOrario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment timePicker = new TimePickerFragment();
+                TimePickerFragment timePicker = new TimePickerFragment();
                 timePicker.show(getFragmentManager(), "time picker");
             }
         });
-
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,16 +102,7 @@ public class InsertFragment2 extends Fragment implements TimePickerDialog.OnTime
 
 
 
-    public static String convertDate(int input) {
-        if (input >= 10) return String.valueOf(input);
-        else return ("0" + String.valueOf(input));
-    }
-    @Override
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        TextView textView = view.findViewById(R.id.textView_ora);
-        ora = convertDate(hourOfDay) + " : " + convertDate(minute);
-        textView.setText(ora);
-    }
+
 
 
 

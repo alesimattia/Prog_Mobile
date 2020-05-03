@@ -96,7 +96,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                         startActivity(m);
                     }
                 })
-                .setNeutralButton(R.string.elimina, new DialogInterface.OnClickListener() {
+                .setNeutralButton(R.string.delete_all, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         final AlertDialog confirm = new AlertDialog.Builder(ChooseActivity.this).create();

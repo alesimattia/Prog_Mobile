@@ -1,140 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     tools:context=".ProfileActivity">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_x="76dp"
+        android:layout_y="0dp"
         android:gravity="center"
         android:text="@string/edit"
+        android:textAlignment="center"
         android:textColor="@color/accent"
         android:textSize="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton_back"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="75dp" />
 
     <TextView
         android:id="@+id/textViev_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
-        android:layout_marginBottom="183dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_x="112dp"
+        android:layout_y="213dp"
         android:gravity="center"
+        android:textAlignment="center"
         android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:background="@drawable/car"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageView>
+        tools:layout_editor_absoluteX="242dp"
+        tools:layout_editor_absoluteY="189dp" />
 
     <TextView
         android:id="@+id/textViev_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_x="108dp"
+        android:layout_y="119dp"
         android:gravity="center"
         android:textSize="22dp"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="98dp" />
 
     <TextView
         android:id="@+id/textView_telefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_x="112dp"
+        android:layout_y="383dp"
         android:gravity="center"
         android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView_patente" />
+        tools:layout_editor_absoluteX="242dp"
+        tools:layout_editor_absoluteY="386dp" />
 
     <ImageButton
         android:id="@+id/imageButton_edit"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginBottom="85dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_x="156dp"
+        android:layout_y="477dp"
         android:background="@drawable/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView_telefono" />
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="445dp" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
+        android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_x="18dp"
+        android:layout_y="210dp"
         android:background="@drawable/email"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_x="19dp"
+        android:layout_y="297dp"
+        android:background="@drawable/car"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="273dp"></ImageView>
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="183dp"
-        android:layout_marginBottom="183dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_x="20dp"
+        android:layout_y="377dp"
         android:background="@drawable/telephone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="372dp" />
 
     <TextView
         android:id="@+id/textView_patente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_x="112dp"
+        android:layout_y="300dp"
         android:gravity="center"
         android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textViev_email" />
+        tools:layout_editor_absoluteX="242dp"
+        tools:layout_editor_absoluteY="287dp" />
 
     <TextView
         android:id="@+id/textView_cognome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_x="214dp"
+        android:layout_y="119dp"
         android:gravity="center"
-        android:textSize="22dp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        android:textSize="22dp" />
 
     <ImageButton
         android:id="@+id/imageButton_back"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="29dp"
-        android:background="@drawable/back_arrow"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_x="4dp"
+        android:layout_y="2dp"
+        android:background="@drawable/back_arrow" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</AbsoluteLayout>

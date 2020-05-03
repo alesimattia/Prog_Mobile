@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -97,7 +96,7 @@ public class ShowRides extends AppCompatActivity  {
         Date current = Calendar.getInstance().getTime();
         try {
             Date data = format.parse(docDate);      //obbligato in un try-catch
-            if (data.after(current)) return false;
+            if (data.after(current)) return false;  //cioè not expired
             return true;
         }
         catch (ParseException e) {
@@ -107,5 +106,10 @@ public class ShowRides extends AppCompatActivity  {
         }
     }
 
+    //gestione dichiarativa bottone "indietro"
+    public void back(View v){
+        Intent intent=new Intent(this, ChooseActivity.class);
+        startActivity(intent);
+    }
 
 }

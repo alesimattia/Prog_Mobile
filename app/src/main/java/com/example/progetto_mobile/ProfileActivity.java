@@ -87,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.imageButton_back:
                 Intent intent=new Intent(this, ChooseActivity.class);
                 startActivity(intent);
+                break;
 
             case R.id.imageButton_edit:
                 showDialog();
