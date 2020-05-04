@@ -12,13 +12,8 @@
         android:id="@+id/button_back1"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="277dp"
-        android:layout_marginStart="10dp"
         android:background="@drawable/back_arrow"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/textView_posti"
-        app:layout_constraintEnd_toStartOf="@+id/textView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,100 +21,120 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginTop="10dp"
         android:text="@string/info"
         android:textColor="@color/accent"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView_Tratta"
+        android:textSize="34dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_back1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_Tratta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="119dp"
         android:text="@string/seleziona"
         android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_tratta"
+        android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_tratta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="51dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Tratta" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_Tratta"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="187dp"
+        android:background="@drawable/seat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_posti"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_tratta">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/radio_andata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/andata" />
+            android:text="@string/andata"
+            android:textSize="16dp" />
 
         <RadioButton
             android:id="@+id/radio_ritorno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/ritorno" />
+            android:text="@string/ritorno"
+            android:textSize="16dp" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView_posti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="209dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="185dp"
+        android:layout_marginBottom="185dp"
         android:text="@string/posti"
         android:textAlignment="textStart"
-        android:textSize="30sp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/spinner_posti"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_back1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_Tratta"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/spinner_posti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="57dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_posti"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_posti"
+        app:layout_constraintStart_toEndOf="@+id/textView_posti" />
 
     <ImageButton
         android:id="@+id/button_next"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="110dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="74dp"
         android:background="@drawable/right_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_posti" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner_posti"
+        app:layout_constraintVertical_bias="1.0" />
 
-
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="275dp"
+        android:background="@drawable/arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
