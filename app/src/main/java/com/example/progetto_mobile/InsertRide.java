@@ -50,7 +50,6 @@ public class InsertRide extends AppCompatActivity {
 
     final AtomicBoolean check = new AtomicBoolean(false);
     public void getNumber() {
-
         DocumentReference docRef = db.collection("utenti").document(user.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -66,7 +65,6 @@ public class InsertRide extends AppCompatActivity {
             }
         });
     }
-
 
 
     public void sumbit(final String tratta, final String verso, final String posti, final String ora, final String data){
@@ -86,8 +84,6 @@ public class InsertRide extends AppCompatActivity {
                     pack.put("telefono", phone);
                     pack.put("user", user.getUid());
 
-                    /*db.collection("viaggi").document(user.getUid()).collection("travel").document(radndom UID)
-                    Salva un documento per ogni utente -> poi subcollection con un documento per viaggio --> di difficile accesso*/
                     db.collection("viaggi").document(/*radndom UID*/)   //un documento per viaggio
                             .set(pack)
                             .addOnFailureListener(new OnFailureListener() {

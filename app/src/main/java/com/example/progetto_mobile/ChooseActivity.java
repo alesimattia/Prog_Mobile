@@ -108,7 +108,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                             }
                         }
                     }
-                 }, 1500);
+                 }, 1200);
                 break;
 
             case R.id.imageButton_my_rides:

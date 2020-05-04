@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 
@@ -91,12 +92,12 @@ public class ShowRides extends AppCompatActivity  {
     }
 
 
-    public boolean isExpired(String docDate){
+    public boolean isExpired(String dataDocumento){
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");   //mm minuscolo corrisponde a "minute"
-        Date current = Calendar.getInstance().getTime();
+        Date today = Calendar.getInstance().getTime();
         try {
-            Date data = format.parse(docDate);      //obbligato in un try-catch
-            if (data.after(current)) return false;  //cioè not expired
+            Date data = format.parse(dataDocumento);      //obbligato in un try-catch
+            if (data.after(today)) return false;  //cioè not expired
             return true;
         }
         catch (ParseException e) {

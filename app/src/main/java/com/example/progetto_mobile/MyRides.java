@@ -77,7 +77,7 @@ public class MyRides extends AppCompatActivity implements View.OnClickListener {
                 if (task.isSuccessful())
                     for (final DocumentSnapshot document : task.getResult().getDocuments()) {
                         document.getId();
-                        putDocument(document);
+                        showDocuments(document);
                     }
                 else   Log.w("tag", "errore accesso db");
             }
@@ -85,7 +85,7 @@ public class MyRides extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private void putDocument(final DocumentSnapshot document) {
+    private void showDocuments(final DocumentSnapshot document) {
             Ride    ride = new     Ride(document.get("tratta").toString(),
                 getString(R.string.direction) + "\t\t" + document.get("verso"),
                     getString(R.string.seats) + "\t\t" + document.get("posti"),
@@ -103,7 +103,9 @@ public class MyRides extends AppCompatActivity implements View.OnClickListener {
                     confirm.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.yes), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             db.collection("viaggi").document(document.getId()).delete();
-                            recreate();
+                            Intent intent=new Intent(MyRides.this, ChooseActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(MyRides.this, R.string.all_deleted, Toast.LENGTH_SHORT).show();
                         }
                     });
                     confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.back), new DialogInterface.OnClickListener() {
@@ -145,8 +147,6 @@ public class MyRides extends AppCompatActivity implements View.OnClickListener {
                             confirm.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.yes), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     deleteAll();
-                                    recreate();
-                                    Toast.makeText(MyRides.this, R.string.all_deleted, Toast.LENGTH_SHORT).show();
                                 }
                             });
                             confirm.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.back), new DialogInterface.OnClickListener() {
@@ -165,7 +165,6 @@ public class MyRides extends AppCompatActivity implements View.OnClickListener {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
 
 
     private void deleteAll(){
