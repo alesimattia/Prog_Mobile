@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/back"
+        android:id="@+id/imageButton_back"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginRight="10dp"
@@ -20,7 +20,7 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/back"
+        android:layout_toEndOf="@+id/imageButton_back"
         android:text="@string/message2"
         android:gravity="center"
         android:textSize="24dp"

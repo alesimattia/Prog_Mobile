@@ -25,11 +25,9 @@
     <string name="ora">Hour</string>
     <string name="posti">Available seats:</string>
     <string name="added">Ride posted correctly</string>
-    <string name="inserisci">Insert ride</string>
     <string name="elimina">Yes, delete</string>
     <string name="data">Date</string>
     <string name="call">Call</string>
-    <string name="choose2">Choose what to do</string>
     <string name="deleted">Rides deleted correctly!</string>
     <string name="sure">Are you sure?</string>
     <string name="back">Go back</string>
@@ -56,5 +54,7 @@
     <string name="message3">Tap on the ride to delete</string>
     <string name="message2">Tap to call the driver</string>
     <string name="login">Login</string>
-    <string name="delete_all">Delete all my travels</string>
+    <string name="delete_all">This will delete all your rides</string>
+    <string name="yes">Yes</string>
+    <string name="all_deleted">All rides deleted</string>
 </resources>

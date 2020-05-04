@@ -114,9 +114,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                             dialog.cancel();    //toglie dalla memoria il precendente dialog
                             final AlertDialog confirm = new AlertDialog.Builder(ProfileActivity.this).create();
                             confirm.setTitle(getString(R.string.save));
-                            confirm.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                            confirm.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.yes), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    String pass=inputPassword.getText().toString();
+                                    String pass = inputPassword.getText().toString();
                                     if(pass != null && !pass.isEmpty() && pass.length() < 6) {
                                         confirm.cancel();
                                         showDialog();

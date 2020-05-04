@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
     android:orientation="vertical">
 
 
@@ -10,12 +12,13 @@
         android:id="@+id/button_back1"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="277dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/back_arrow"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/textView_posti"
+        app:layout_constraintEnd_toStartOf="@+id/textView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,27 +26,27 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="10dp"
         android:text="@string/info"
         android:textColor="@color/accent"
         android:textSize="35dp"
         app:layout_constraintBottom_toTopOf="@+id/textView_Tratta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_back1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_Tratta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/seleziona"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/spinner_tratta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
@@ -51,11 +54,10 @@
         android:id="@+id/spinner_tratta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="54dp"
+        android:layout_marginBottom="48dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_Tratta" />
 
@@ -63,11 +65,10 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="66dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/spinner_posti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_tratta">
 
@@ -89,13 +90,13 @@
         android:id="@+id/textView_posti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="218dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="209dp"
         android:text="@string/posti"
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spinner_posti"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_back1" />
 
@@ -103,10 +104,9 @@
         android:id="@+id/spinner_posti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="57dp"
         app:layout_constraintBottom_toTopOf="@+id/button_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView_posti"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -114,11 +114,10 @@
         android:id="@+id/button_next"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="110dp"
         android:background="@drawable/right_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_posti" />
 

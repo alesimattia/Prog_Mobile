@@ -7,20 +7,15 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import com.example.progetto_mobile.R;
 
 import java.util.Calendar;
-import java.util.List;
-import java.util.zip.Inflater;
 
 //Classe per il time-picker come da documentazione Google
 //Eliminata interfaccia "onTimeSetListener" --> gestito in InsertRide.class

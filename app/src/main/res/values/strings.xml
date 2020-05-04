@@ -2,13 +2,13 @@
     <string name="app_name" translatable="false">Unicar</string>
     <string name="email">e-Mail</string>
     <string name="password">Password</string>
-
+    <string name="yes">Si</string>
     <!--per activity_main-->
     <string name="err_richiesto">Dato Richiesto</string>
     <string name="emptyField">Campi vuoti</string>
     <string name="passAlert">Password minimo 6 caratteri</string>
     <string name="errorSignup">Errore nella registrazione</string>
-    <string name="register">Registrati</string> <!--usato anche in register_layout.xml -->
+    <string name="register">Registrati</string>
     <string name="login">Accedi</string>
 
     <!--per i fragment di registrazione-->
@@ -29,15 +29,14 @@
     <string name="dbWriteErr">Errore di scrittura nel database</string>
     <string name="profile">Modifica Profilo</string>
     <string name="myrides">I Miei Viaggi</string>
-    <!--per il dialog-->
-    <string name="choose2">Cosa vuoi fare?</string>
-    <string name="inserisci">Aggiungi nuovo viaggio </string>
-    <string name="new_password">Nuova Password</string>
+
+    <!--per il dialog in MyRides-->
     <string name="deleted">Viaggi eliminati correttamente!</string>
     <string name="sure">Sei sicuro?</string>
     <string name="sure_detail">Stai per eliminare tutti i tuoi viaggi</string>
     <string name="back">Annulla</string>
-    <string name="delete_all">Elimina tutti i viaggi</string>
+    <string name="delete_all">Elimina tutti i tuoi viaggi</string>
+    <string name="all_deleted">Corse eliminate</string>
 
     <!--per LicenceActivity-->
     <string name="noLicence">Non hai inserito una patente</string>
@@ -81,10 +80,11 @@
     <string name="elimina">Elimina </string>
     <string name="message3">Tap su un viaggio per eliminarlo </string>
 
-    <!--per profile -->
+    <!--per ProfileActivity -->
     <string name="edit">Aggiorna Profilo</string>
     <string name="confirm">Conferma Password</string>
     <string name="update">Aggiorna</string>
     <string name="updated">Profilo aggiornato correttamente</string>
     <string name="save">Confermi i dati?</string>
+    <string name="new_password">Nuova Password</string>
 </resources>
